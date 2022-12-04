@@ -1,4 +1,4 @@
-var siteURL = "", path = "", page = null, feedLoaded = false, feed = null, feedURL = "https://macclesfield-hedgehogs.s3.eu-west-2.amazonaws.com/videos.json";
+var siteURL = "", siteName = "Macclesfield Hedgehogs", path = "", page = null, feedLoaded = false, feed = null, feedURL = "https://macclesfield-hedgehogs.s3.eu-west-2.amazonaws.com/videos.json";
 
 function PathToPage(passedPage) {
     path = (passedPage != null && passedPage != "")? passedPage : window.location.pathname.toLowerCase();
@@ -104,7 +104,8 @@ function FootagePage() {
 	if($(".video-playback video").length > 0)
 		$(".video-playback video")[0].play();
 
-	document.title = $("#h1").text();
+	document.title = $("p#title").text();
+
 	$("meta[name='twitter:title']").attr("content", $("#h1").text());
 	$("meta[property='og:title']").attr("content", $("#h1").text());
 }
@@ -125,12 +126,16 @@ function OutputYearsAndMonths(specificYear) {
 		if(IsNullOrEmpty(specificYear)) {
 			$("#h1").text("All Footage");
 
+			$("p#title").text("All Footage - " + siteName);
+
 			html +=
 				"<p>All footage currently in the system.</p>" + 
 				"<p>Please select a Year or Month.</p>" +
 				"<p>Selectable entries are highlighted.</p>";
 		} else {
 			$("#h1").text(specificYear);
+
+			$("p#title").text("Footage from " + specificYear + " - " + siteName);
 
 			html += "<p>Footage from " + specificYear + ".</p>" +
 				"<p>Please select a month.</p>" +
@@ -215,6 +220,8 @@ function OutputMonth(specificYear, specificMonth) {
 
 	if(monthFeed.length > 0) {
 		$("#h1").text(monthNames[parseInt(specificMonth) - 1] + " " + specificYear);
+
+		$("p#title").text("Footage from " + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + " - " + siteName);
 
 		html += "<p>Footage from " + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + ".</p>" +
 			"<p>Selectable entries are highlighted.</p>";
@@ -307,6 +314,8 @@ function OutputDay(specificYear, specificMonth, specificDay) {
 			dateStringShort = dayNamesShort[DataDateToRealDate(dayFeed[0].Date).getDay()] + " " + DataDateToRealDate(dayFeed[0].Date).getDate() + DayPostfix(DataDateToRealDate(dayFeed[0].Date).getDate()) + " " + monthNamesShort[DataDateToRealDate(dayFeed[0].Date).getMonth()] + " " + DataDateToRealDate(dayFeed[0].Date).getFullYear();
 		
 		$("#h1").html("<span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span>");
+
+		$("p#title").text("Footage from " + dateStringShort + " - " + siteName);
 
 		html += "<p>Footage from <span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span>.</p>" +
 			"<p>Click 'Play Video' or Tap the thumbnail to begin playback.</p>";
@@ -411,6 +420,8 @@ function OutputVideo(video) {
 			timeString = DataDateToRealDate(footage[0].Date).toTimeString().split(' ')[0];
 
 		$("#h1").html("<span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span> at " + timeString);
+
+		$("p#title").text("Footage from " + dateStringShort + " at " + timeString + " - " + siteName);
 	
 		html += "<p>Footage from <span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span> at " + timeString + ".</p>";
 		html += "<p>Taken on the <a href=\"/cameras#" + footage[0].Camera + "\">" + GetNiceCameraName(footage[0].Camera) + "</a> camera.</p>";
@@ -479,7 +490,7 @@ function NewContentLoadedFunctions(page) {
 		ToggleMenu(true);
 	});
 	
-	document.title = page.title;
+	document.title = page.title + ((page.url == "home")? "" : " - " + siteName);
 	$("meta[name='twitter:title']").attr("content", page.title);
 	$("meta[property='og:title']").attr("content", page.title);
 	
