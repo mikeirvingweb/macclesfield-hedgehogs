@@ -6,13 +6,13 @@ function PathToPage(passedPage) {
 	path = path.split('?')[0].split('#')[0];
     
     if(path == "/" || path == "/home")
-        page = {url: "home", title: "Macclesfield Hedgehogs", metadesc: "", metakey: ""};
+        page = {url: "home", title: "Macclesfield Hedgehogs", metadesc: "A video diary of hedgehogs visiting a garden in Macclesfield.", metakey: "macclesfield hedgehogs, mice, video, wildlife, night vision, cameras"};
     else if(path == "/about")
-        page = {url: "about", title: "About", metadesc: "", metakey: ""};
+        page = {url: "about", title: "About", metadesc: "All about the Macclesfield Hedgehogs website", metakey: "about, macclesfield, hedgehogs, website"};
 	else if(path == "/footage")
-        page = {url: "footage", title: "Footage", metadesc: "", metakey: ""};
+        page = {url: "footage", title: "Footage", metadesc: "Video Footage of Macclesfield Hedgehogs", metakey: "footage, video, macclesfield, hedgehogs"};
 	else if(path == "/cameras")
-        page = {url: "cameras", title: "Cameras", metadesc: "", metakey: ""};
+        page = {url: "cameras", title: "Cameras", metadesc: "Cameras used to capture footage of Macclesfield Hedgehogs.", metakey: "cameras, wildlife, arlo, ceyomur, xbro, xega, field camera"};
 	else
 		page = {url: "404", title: "Page not found", metadesc: "", metakey: ""};
     
