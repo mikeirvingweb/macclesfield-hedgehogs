@@ -361,23 +361,53 @@ function OutputDayRow(footage, i, showDate) {
 		dateStringShort = dayNamesShort[DataDateToRealDate(footage.Date).getDay()] + " " + DataDateToRealDate(footage.Date).getDate() + DayPostfix(DataDateToRealDate(footage.Date).getDate()) + " " + monthNamesShort[DataDateToRealDate(footage.Date).getMonth()] + " " + DataDateToRealDate(footage.Date).getFullYear(),
 		timeString = DataDateToRealDate(footage.Date).toTimeString().split(' ')[0];
 
-	var html =
-		"<hr>" +
-		"<section class=\"video-row\">" +
-			"<section class=\"video-holder\">" +
-				"<video class=\"click-through\" onclick=\"$('#video-" + i + "').click()\">" +
-					"<source src=\"" + footage.URL + "#t=0.001\"></source>" +
-				"</video>" +
-			"</section>" +
-			"<section class=\"video-details\">" +
-			"<p><a class=\"button-link play\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">Play Video</a></p>" +
-				((showDate)? "<p><span class=\"desktop-only-inline\">Date:&nbsp;</span><span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span></p>" : "") +
-				"<p><span class=\"desktop-only-inline\">Time:&nbsp;</span>" + timeString + "</p>" +
-				"<p><span class=\"desktop-only-inline\">Camera:&nbsp;</span><a href=\"/cameras#" + footage.Camera + "\" title=\"Click for info on the " + GetNiceCameraName(footage.Camera) + " camera.\">" + GetNiceCameraName(footage.Camera) + "</a></p>" +
+	var html = "", hidden = (i >= 5);
+
+	if( (i >= 5) && (parseInt(i / 5) == parseFloat(i / 5)) ) {
+		html += "<div class=\"div-more" + ((i >= 10)? " hidden" : "") + "\" id=\"divMore" + i + "\"><hr><a class=\"button-link more special\" onclick=\"return ShowMore(" + i + ");\">Show More</a><hr></div>";
+	}
+
+	html +=
+		"<section id=\"videoRow" + i + "\"" + ((hidden)? " class=\"hidden\"" : "") + ">" +
+			"<hr>" +
+			"<section class=\"video-row\">" +
+				"<section class=\"video-holder\">" +
+					"<" + ((hidden)? "hidden" : "") + "video class=\"click-through\" onclick=\"$('#video-" + i + "').click()\">" +
+						"<source src=\"" + footage.URL + "#t=0.001\"></source>" +
+					"</" + ((hidden)? "hidden" : "") + "video>" +
+				"</section>" +
+				"<section class=\"video-details\">" +
+				"<p><a class=\"button-link play\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">Play Video</a></p>" +
+					((showDate)? "<p><span class=\"desktop-only-inline\">Date:&nbsp;</span><span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span></p>" : "") +
+					"<p><span class=\"desktop-only-inline\">Time:&nbsp;</span>" + timeString + "</p>" +
+					"<p><span class=\"desktop-only-inline\">Camera:&nbsp;</span><a href=\"/cameras#" + footage.Camera + "\" title=\"Click for info on the " + GetNiceCameraName(footage.Camera) + " camera.\">" + GetNiceCameraName(footage.Camera) + "</a></p>" +
+				"</section>" +
 			"</section>" +
 		"</section>";
-	
+
 	return html;
+}
+
+function ShowMore(i) {
+	$("#divMore" + i).remove();
+
+	var moreMores = $(".div-more");
+
+	if(moreMores.length > 0)
+		$($(".div-more")[0]).removeClass("hidden");
+
+	ShowVideoRow(i, (i + 5));
+	
+	return false;
+}
+
+function ShowVideoRow(i, stop) {
+	$("#videoRow" + i).html($("#videoRow" + i).html().replaceAll("hiddenvideo", "video")).slideDown(null, function() {
+		i++;
+
+		if(i < stop)
+			ShowVideoRow(i, stop);
+	});
 }
 
 function OutputClipRow(footage, i) {
@@ -523,7 +553,7 @@ function NewContentLoadedFunctions(page) {
 }
 
 function WireUpLinks() {
-	$("a:not(.external)").off('click').click(function(){
+	$("a:not(.external):not(.special)").off('click').click(function(){
 		var gotoUrl = $(this).attr("href");
 		
 		PushOrPopThenLoadPage(gotoUrl, true);

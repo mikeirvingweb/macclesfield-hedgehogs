@@ -290,6 +290,8 @@ header .headerFullRight {
 
 .button-link.play::before {content: "►"; margin-right: 0.5em; color: var(--play) }
 
+.button-link.more::after {content: "✚"; margin-left: 0.5em; color: var(--play) }
+
 .button-link.top::before {content: "▲"; margin-right: 0.5em; color: black }
 
 #content video { background-color: #333; }
