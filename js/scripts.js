@@ -19,6 +19,12 @@ function PathToPage(passedPage) {
     return page;
 }
 
+function SetShareMetaTags() {
+	$("meta[property='og:title'], meta[name='twitter:title']").attr("content", document.title);
+	$("meta[property='og:description'], meta[name='twitter:description']").attr("content", $("meta[name=description]").attr("content"));
+	$("meta[property='og:url']").attr("content", window.location.href);
+}
+
 function FirstLoad() {
 	FetchFeed();
 
@@ -105,9 +111,7 @@ function FootagePage() {
 		$(".video-playback video")[0].play();
 
 	document.title = $("p#title").text();
-
-	$("meta[name='twitter:title']").attr("content", $("#h1").text());
-	$("meta[property='og:title']").attr("content", $("#h1").text());
+	SetShareMetaTags();
 }
 
 function OutputYearsAndMonths(specificYear) {
@@ -521,17 +525,10 @@ function NewContentLoadedFunctions(page) {
 	});
 	
 	document.title = page.title + ((page.url == "home")? "" : " - " + siteName);
-	$("meta[name='twitter:title']").attr("content", page.title);
-	$("meta[property='og:title']").attr("content", page.title);
-	
 	$("meta[name=description]").attr("content", page.metadesc);
-	$("meta[name='twitter:description']").attr("content", page.metadesc);
-	$("meta[property='og:description']").attr("content", page.metadesc);
-	
-	$("meta[name='twitter:image']").attr("content", siteURL + "images/" + page.image + ".png");
-	$("meta[property='og:image']").attr("content", siteURL + "images/" +  page.image + ".png");
-	
 	$("meta[name=keywords]").attr("content", page.metakey);
+
+	SetShareMetaTags();
 	
 	$("nav li a").removeClass("active");
 	$("nav li a.nav-link-" + page.url).addClass("active");
