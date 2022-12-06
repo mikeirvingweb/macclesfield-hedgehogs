@@ -19,6 +19,36 @@ function PathToPage(passedPage) {
     return page;
 }
 
+var monthNotes = [
+	{ 
+		year: 2022, month: 12,
+		notes: 
+			"<p>Website launch month, and aside from the <a href=\"/footage?date=2022-12-01\">1st December</a>, the hedgehogs snubbed the party!</p>" +
+			"<p>On the following days, only mice would visit.</p>"
+	},
+	{ 
+		year: 2022, month: 11,
+		notes: 
+			"<p>November 2022 was yet again a busy month, for both hedgehogs and mice.</p>"
+	},
+	{ 
+		year: 2022, month: 10,
+		notes: 
+			"<p>October 2022 proved to be a very busy month for visiting hedgehogs.</p>"
+	},
+	{ 
+		year: 2022, month: 9,
+		notes: 
+			"<p>A lot of the entries early in September are videos of <strong>mice</strong> - the original visitors to the hedgehog house!</p>" +
+			"<p>Hedgehog footage begins from <a href=\"/footage?date=2022-09-13\">13th September</a>.</p>" +
+			"<p>Also includes the first spotted footage of <strong>2 hedgehogs</strong>, on the <a href=\"/footage?date=2022-09-29\">29th September</a>, starting at the <a href=\"/footage?video=2022-09-29-22-33-34_Xbro-XC100_SecurityCam-20220929-222834@300490.mp4\">22:33</a> clip.</p>"
+	},
+	{ 
+		year: 2022, month: 8,
+		notes: "<p>Cameras first setup in August 2022, and the very first recordings of our spiky friends are captured!</p>"
+	}
+];
+
 function SetShareMetaTags() {
 	$("meta[property='og:title'], meta[name='twitter:title']").attr("content", document.title);
 	$("meta[property='og:description'], meta[name='twitter:description']").attr("content", $("meta[name=description]").attr("content"));
@@ -230,9 +260,14 @@ function OutputMonth(specificYear, specificMonth) {
 		html += "<p>Footage from " + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + ".</p>" +
 			"<p>Selectable entries are highlighted.</p>";
 
-		if(specificYear == "2022" && specificMonth == "09")
-			html += "<p>A lot of the entries for this month are videos of <strong>mice</strong> - the original visitors to the hedgehog house!</p>";
-
+		var notes = monthNotes.filter(x => x.year == parseInt(specificYear) && x.month == parseInt(specificMonth));
+		
+		if(notes.length > 0) {
+			html += 
+				"<h2>Editor's notes</h2>" +
+				notes[0].notes;
+		}
+			
 		html +=	"<div class=\"prev-next\">";
 
 		var previous = feed.filter(x => !x.Date.startsWith(specificYear + "-" + specificMonth) && x.Date < specificYear + "-" + specificMonth).at(0)
