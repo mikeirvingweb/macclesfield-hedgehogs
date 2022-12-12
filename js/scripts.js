@@ -412,9 +412,9 @@ function OutputDayRow(footage, i, showDate) {
 			"<hr>" +
 			"<section class=\"video-row\">" +
 				"<section class=\"video-holder\">" +
-					"<" + ((hidden)? "hidden" : "") + "video class=\"click-through\" onclick=\"$('#video-" + i + "').click()\">" +
-						"<source src=\"" + footage.URL + "#t=0.001\"></source>" +
-					"</" + ((hidden)? "hidden" : "") + "video>" +
+					"<video class=\"click-through\" onclick=\"$('#video-" + i + "')[0].click()\" preload=\"none\" poster=\"" + footage.URL + ".jpg\">" +
+						"<source src=\"" + footage.URL + "\"></source>" +
+					"</video>" +
 				"</section>" +
 				"<section class=\"video-details\">" +
 				"<p><a class=\"button-link play\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">Play Video</a></p>" +
@@ -442,7 +442,7 @@ function ShowMore(i) {
 }
 
 function ShowVideoRow(i, stop) {
-	$("#videoRow" + i).html($("#videoRow" + i).html().replaceAll("hiddenvideo", "video")).slideDown(null, function() {
+	$("#videoRow" + i).html($("#videoRow" + i).html()).slideDown(null, function() {
 		i++;
 
 		if(i < stop)
@@ -458,13 +458,13 @@ function OutputClipRow(footage, i) {
 	var html =
 		"<section class=\"clip\">" +
 			"<section class=\"clip-holder\">" +
-				"<video class=\"click-through\" onclick=\"$('#video-" + i + "').click()\">" +
-					"<source src=\"" + footage.URL + "#t=0.001\"></source>" +
+				"<video class=\"click-through\" onclick=\"$('#video-" + i + "-1')[0].click()\" preload=\"none\" poster=\"" + footage.URL + ".jpg\">" +
+					"<source src=\"" + footage.URL + "\"></source>" +
 				"</video>" +
 			"</section>" +
 			"<section class=\"clip-details\">" +
 				"<p>" +
-					"<a class=\"button-link play desktop-only\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">Play Video</a>" +
+					"<a class=\"button-link play desktop-only\" id=\"video-" + i + "-1\" href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">Play Video</a>" +
 					"<a class=\"button-link play mobile-only\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">Play</a>" +
 				"</p>" +
 				"<p>" +
@@ -521,8 +521,8 @@ function OutputVideo(video) {
 		html +=
 			"<section class=\"clear video-playback\">" +
 				"<section class=\"video-holder\">" +
-					"<video controls autoplay>" +
-						"<source src=\"" + footage[0].URL + "#t=0.001\"></source>" +
+					"<video controls autoplay poster=\"" + footage[0].URL + ".jpg\">" +
+						"<source src=\"" + footage[0].URL + "\"></source>" +
 					"</video>" +
 				"</section>" +
 				"<hr>" +
