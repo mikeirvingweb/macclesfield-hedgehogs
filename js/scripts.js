@@ -521,8 +521,8 @@ function OutputVideo(video) {
 		html +=
 			"<section class=\"clear video-playback\">" +
 				"<section class=\"video-holder\">" +
-					"<video controls autoplay poster=\"" + footage[0].URL + ".jpg\">" +
-						"<source src=\"" + footage[0].URL + "\"></source>" +
+					"<video controls playsinline autoplay poster=\"" + footage[0].URL + ".jpg\">" +
+						"<source src=\"" + footage[0].URL + "#t=0.001\"></source>" +
 					"</video>" +
 				"</section>" +
 				"<hr>" +
