@@ -317,7 +317,7 @@ header .headerFullRight {
 .camera-set .camera-image img {width: calc(100% - 2px); border: 1px solid black; }
 .camera-set .camera-text { width: calc(80% - 32px); float: left; margin-bottom: 0.5em; padding: 0 16px; }
 
-table.calendar {width: 100%; text-align: center; border-collapse: collapse; }
+table.calendar {width: 100%; text-align: center; border-collapse: collapse; table-layout: fixed; }
 table.calendar, table.calendar th, table.calendar td { border: 1px solid black; vertical-align: top; }
 table.calendar thead {background-color: #aaa;}
 table.calendar tbody {background-color: #ccc;}
