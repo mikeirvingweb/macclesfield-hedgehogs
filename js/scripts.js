@@ -327,7 +327,7 @@ function OutputMonth(specificYear, specificMonth) {
 
 		var lastDay = new Date(specificYear + "-" + specificMonth + "-" + PadNumber(DaysInMonth(specificYear, specificMonth))).getDay();
 
-		if((lastDay < 6))
+		if((lastDay > 0))
 		{
 			for(i = lastDay; i < 7; i++) {
 				html += "<td></td>";
