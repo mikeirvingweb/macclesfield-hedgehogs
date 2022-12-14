@@ -13,6 +13,8 @@ function PathToPage(passedPage) {
         page = {url: "footage", title: "Footage", metadesc: "Video Footage of Macclesfield Hedgehogs", metakey: "footage, video, macclesfield, hedgehogs"};
 	else if(path == "/cameras")
         page = {url: "cameras", title: "Cameras", metadesc: "Cameras used to capture footage of Macclesfield Hedgehogs.", metakey: "cameras, wildlife, arlo, ceyomur, xbro, xega, field camera"};
+	else if(path == "/sitemap")
+        page = {url: "sitemap", title: "Sitemap", metadesc: "Sitemap of the Macclesfield Hedgehogs website", metakey: "sitemap, site map, macclesfield, hedgehogs, website"};
 	else
 		page = {url: "404", title: "Page not found", metadesc: "", metakey: ""};
     
@@ -143,6 +145,99 @@ function FootagePage() {
 
 	document.title = $("p#title").text();
 	SetShareMetaTags();
+}
+
+function SitemapPage() {
+	if(feed == null) {
+		ShowLoading();
+		setTimeout(SitemapPage, 1000);
+		return;
+	}
+
+	var years = [], months = [];
+
+	var html = "";
+
+	feed.forEach((item) => {
+		var year = item.Date.split("-")[0];
+
+		if( (years[years.length -1] == null || years[years.length -1] != year) )
+			years.push(year);
+	});
+
+	if(years.length > 0) {
+		html += "<ul class=\"sitemap\">";
+
+		years.forEach((year) => {
+			html += "<li>";
+			
+			html += "<a href=\"/footage?date=" + year + "\">" + year + "</a>";
+
+			months = [];
+
+			feed.filter(x => x.Date.startsWith(year)).forEach((item) => {
+				var month = item.Date.split("-")[1];
+
+				if(months[months.length -1] == null || months[months.length -1] != month)
+					months.push(month)
+			});
+
+			if(months.length > 0) {
+				html += "<ul>";
+
+				months.forEach((month) => {
+					html += "<li>";
+
+					html += "<p><a href=\"/footage?date=" + year + "-" + month + "\">" + monthNames[parseInt(month) - 1] + "</a></p>";
+
+					var monthFeed = feed.filter(x => x.Date.startsWith(year + "-" + month));
+
+					for(i = 1; i <= DaysInMonth(year, month); i++) {
+						var dayItems = monthFeed.filter(x => x.Date.startsWith(year + "-" + month + "-" + PadNumber(i))).length;
+						
+						if(dayItems > 0) {
+							html += "<ul>";
+
+							var dayFeed = feed.filter(x => x.Date.startsWith(year + "-" + month + "-" + PadNumber(i))),
+								dateString = dayNamesShort[DataDateToRealDate(dayFeed[0].Date).getDay()] + " " + DataDateToRealDate(dayFeed[0].Date).getDate() + DayPostfix(DataDateToRealDate(dayFeed[0].Date).getDate()) + " " + monthNamesShort[DataDateToRealDate(dayFeed[0].Date).getMonth()] + " " + DataDateToRealDate(dayFeed[0].Date).getFullYear();
+
+							if(dayFeed.length > 0) {
+								html += "<li>";
+								html += "<p><a href=\"/footage?date=" + year + "-" + month + "-" + PadNumber(i) + "\">" + dateString + "</a></p>";
+
+								html += "<ul>";
+
+								dayFeed.forEach((footage, i) => {
+									html += "<li>";
+
+									var timeString = DataDateToRealDate(footage.Date).toTimeString().split(' ')[0];
+									html += "<p><a href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">" + timeString + "</a></p>";
+
+									html += "</li>";
+								});
+
+								html += "</ul>";
+
+								html += "</li>";
+							}
+
+							html += "</ul>";
+						}
+					}
+
+					html += "</li>";
+				});
+
+				html += "</ul>";
+			}
+
+			html += "</li>";
+		});
+
+		html += "</ul>";
+	}
+
+	$("#footageSitemap").html(html);
 }
 
 function OutputYearsAndMonths(specificYear) {
@@ -577,6 +672,10 @@ function NewContentLoadedFunctions(page) {
 
 	if(page.url == "home") {
 		HomePage();
+	}
+
+	if(page.url == "sitemap") {
+		SitemapPage();
 	}
 	
 	firstContent = false;
