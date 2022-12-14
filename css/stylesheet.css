@@ -91,6 +91,7 @@ header .headerFullRight {position:relative; float:right; margin: 10px 0; width: 
 #main label {margin: 0.5em 0 0 0; font-size:1.0em; display:block;}
 #main ul, #main ol {padding: 6px 0 6px 0;}
 #main ul li {list-style:disc;}
+#main ul.sitemap, #main ul.sitemap ul {padding: revert;}
 #main ol li {list-style-type: decimal; margin: 0 0 8px 2em; padding: 0 0 0 0;}
 #content {position:relative; float:left; width:100%; overflow:auto; line-height: 1.4em; font-size:1.2em; text-align:left; color: var(--main-content);}
 #content img, #content video {display: block; margin-left: auto; margin-right: auto; max-width: 100%; margin-bottom: 5px;}
