@@ -52,10 +52,14 @@ var monthNotes = [
 	}
 ];
 
-function SetShareMetaTags() {
+function SetShareMetaTags(videoPage) {
 	$("meta[property='og:title'], meta[name='twitter:title']").attr("content", document.title);
 	$("meta[property='og:description'], meta[name='twitter:description']").attr("content", $("meta[name=description]").attr("content"));
 	$("meta[property='og:url']").attr("content", window.location.href);
+
+	let shareImageURL = videoPage? $($("video")[0]).attr("poster") : "https://www.macclesfieldhedgehogs.co.uk/images/macclesfield-hedgehogs-share.png";
+
+	$("meta[property='og:image'], meta[name='twitter:image']").attr("content", shareImageURL);
 }
 
 function FirstLoad() {
@@ -110,7 +114,7 @@ function FootagePage() {
 		return;
 	}
 
-	var year = null, month = null, day = null, footage = "";
+	var year = null, month = null, day = null, footage = "", hasThumbnail = false;
 
 	var qsDate = GetQueryStringParameter("date"),
 		qsDateSplit = null,
@@ -125,8 +129,10 @@ function FootagePage() {
 		footage = OutputMonth(qsDateSplit[0], qsDateSplit[1]);
 	} else if(qsDateSplit != null && qsDateSplit.length == 3) {
 		footage = OutputDay(qsDateSplit[0], qsDateSplit[1], qsDateSplit[2]);
+		hasThumbnail = true;
 	} else if(!IsNullOrEmpty(qsVideo)) {
 		footage = OutputVideo(qsVideo);
+		hasThumbnail = true;
 	}
 	
 	if(footage == "") {
@@ -144,7 +150,7 @@ function FootagePage() {
 		$(".video-playback video")[0].play();
 
 	document.title = $("p#title").text();
-	SetShareMetaTags();
+	SetShareMetaTags(hasThumbnail);
 }
 
 function SitemapPage() {
