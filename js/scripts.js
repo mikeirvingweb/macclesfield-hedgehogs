@@ -146,11 +146,11 @@ function FootagePage() {
 
 	WireUpLinks();
 
-	if($(".video-playback video").length > 0)
-		$(".video-playback video")[0].play();
-
 	document.title = $("p#title").text();
 	SetShareMetaTags(hasThumbnail);
+
+	if($(".video-playback video").length > 0)
+		$(".video-playback video")[0].play();
 }
 
 function SitemapPage() {
