@@ -46,6 +46,7 @@ a {color: var(--link); text-decoration:none; text-decoration-color: #765b01;}
 #contentDiv a {color: var(--link-darker);}
 a:hover {text-decoration:underline; text-decoration-color: none;}
 strong {font-weight: bold;}
+strong.question {margin-top:1.5em; display:block;}
 header {position:relative; float:left; height:50px; width: 100%;}
 
 header #menu {position:absolute ! important; top: 0; right: 0; background:url(/images/menu.png) 20px 10px no-repeat; background-size: 30px 30px; width:60px; max-width: 18%; height:50px; position:relative; cursor:pointer;}
