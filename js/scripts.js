@@ -25,6 +25,12 @@ function PathToPage(passedPage) {
 
 var monthNotes = [
 	{ 
+		year: 2023, month: 1,
+		notes: 
+			"<p>The hedgehogs have started the year in hibernation. Mice are the only visitors.</p>" +
+			"<p><strong>For lots of Hedgehogs</strong>, please check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November 2022</a>.</p>"
+	},
+	{ 
 		year: 2022, month: 12,
 		notes: 
 			"<p>Website launch month, and aside from the <a href=\"/footage?date=2022-12-01\">1st December</a>, the hedgehogs snubbed the party!</p>" +
