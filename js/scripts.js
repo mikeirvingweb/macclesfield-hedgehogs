@@ -5,17 +5,19 @@ function PathToPage(passedPage) {
 
 	path = path.split('?')[0].split('#')[0];
     
-    if(path == "/" || path == "/home")
+	var pathCleansed = path.replaceAll("/", "").replaceAll("&", "");
+
+    if(pathCleansed == "" || pathCleansed == "home")
         page = {url: "home", title: "Macclesfield Hedgehogs", metadesc: "A video diary of hedgehogs visiting a garden in Macclesfield.", metakey: "macclesfield hedgehogs, mice, video, wildlife, night vision, cameras"};
-    else if(path == "/about")
+    else if(pathCleansed == "about")
         page = {url: "about", title: "About", metadesc: "All about the Macclesfield Hedgehogs website", metakey: "about, macclesfield, hedgehogs, website"};
-	else if(path == "/footage")
+	else if(pathCleansed == "footage")
         page = {url: "footage", title: "Footage", metadesc: "Video Footage of Macclesfield Hedgehogs", metakey: "footage, video, macclesfield, hedgehogs"};
-	else if(path == "/cameras")
+	else if(pathCleansed == "cameras")
         page = {url: "cameras", title: "Cameras", metadesc: "Cameras used to capture footage of Macclesfield Hedgehogs.", metakey: "cameras, wildlife, arlo, ceyomur, xbro, xega, field camera"};
-	else if(path == "/faqs")
+	else if(pathCleansed == "/faqs")
         page = {url: "faqs", title: "FAQs", metadesc: "Frequently Asked Questions - Macclesfield Hedgehogs", metakey: "faq, faqs, frequesntly, asked, questions, macclesfield, hedgehogs, website"};
-	else if(path == "/sitemap")
+	else if(pathCleansed == "sitemap")
         page = {url: "sitemap", title: "Sitemap", metadesc: "Sitemap of the Macclesfield Hedgehogs website", metakey: "sitemap, site map, macclesfield, hedgehogs, website"};
 	else
 		page = {url: "404", title: "Page not found", metadesc: "", metakey: ""};
