@@ -15,7 +15,7 @@ function PathToPage(passedPage) {
         page = {url: "footage", title: "Footage", metadesc: "Video Footage of Macclesfield Hedgehogs", metakey: "footage, video, macclesfield, hedgehogs"};
 	else if(pathCleansed == "cameras")
         page = {url: "cameras", title: "Cameras", metadesc: "Cameras used to capture footage of Macclesfield Hedgehogs.", metakey: "cameras, wildlife, arlo, ceyomur, xbro, xega, field camera"};
-	else if(pathCleansed == "/faqs")
+	else if(pathCleansed == "faqs")
         page = {url: "faqs", title: "FAQs", metadesc: "Frequently Asked Questions - Macclesfield Hedgehogs", metakey: "faq, faqs, frequesntly, asked, questions, macclesfield, hedgehogs, website"};
 	else if(pathCleansed == "sitemap")
         page = {url: "sitemap", title: "Sitemap", metadesc: "Sitemap of the Macclesfield Hedgehogs website", metakey: "sitemap, site map, macclesfield, hedgehogs, website"};
