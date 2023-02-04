@@ -27,6 +27,12 @@ function PathToPage(passedPage) {
 
 var monthNotes = [
 	{ 
+		year: 2023, month: 2,
+		notes: 
+			"<p>No hedgehogs to begin February. Hopefully that may change soon, with the temperature rising.</p>" +
+			"<p>Like last month, <strong>for hedgehogs</strong>, check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November 2022</a>.</p>"
+	},
+	{ 
 		year: 2023, month: 1,
 		notes: 
 			"<p>The hedgehogs have started the year in hibernation. Mice are the only visitors.</p>" +
