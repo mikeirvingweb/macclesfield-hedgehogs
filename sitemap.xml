@@ -1,0 +1,67 @@
+---
+title: sitemap
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/about</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/cameras</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/faqs</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/sitemap</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date={{ site.time | date: '%Y' }}</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date={{ site.time | date: '%Y-%m' }}</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date={{ site.time | date: '%Y-01' }}</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date=2022</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date=2022-12</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date=2022-11</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date=2022-10</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date=2022-09</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+  <url>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date=2022-08</loc>
+    <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
+  </url>
+</urlset>
