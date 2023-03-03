@@ -27,10 +27,17 @@ function PathToPage(passedPage) {
 
 var monthNotes = [
 	{ 
+		year: 2023, month: 3,
+		notes: 
+			"<p>No hedgehogs, just mice, to begin March. Hopefully the end of winter is near.</p>" +
+			"<p><strong>For hedgehogs</strong>, check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November 2022</a>.</p>"
+	},
+	{ 
 		year: 2023, month: 2,
 		notes: 
-			"<p>No hedgehogs to begin February. Hopefully that may change soon, with the temperature rising.</p>" +
-			"<p>Like last month, <strong>for hedgehogs</strong>, check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November 2022</a>.</p>"
+			"<p>February 2023 proved to be another 'No Hedgehogs' month, but we had mice visiting.</p>" +
+			"<p>The downtime gave a good opportunity to work on many tech and performance improvements.</p>" +
+			"<p>Like the previous few months, <strong>for hedgehogs</strong>, check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November 2022</a>.</p>"
 	},
 	{ 
 		year: 2023, month: 1,
