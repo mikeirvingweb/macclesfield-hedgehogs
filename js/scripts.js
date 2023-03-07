@@ -29,8 +29,7 @@ var monthNotes = [
 	{ 
 		year: 2023, month: 3,
 		notes: 
-			"<p>No hedgehogs, just mice, to begin March. Hopefully the end of winter is near.</p>" +
-			"<p><strong>For hedgehogs</strong>, check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November 2022</a>.</p>"
+			"<p><strong>Hedgehogs have emerged from hibernation!</strong>, check out <a class=\"highlight\" href=\"/footage?date=2023-03-06\">6th March</a> (or later).</p>"
 	},
 	{ 
 		year: 2023, month: 2,
@@ -117,13 +116,18 @@ function HomePage() {
 
 	var camerasInFeed = new Set(feed.map(x => x.Camera));
 
+	var processed = 0;
+
 	if(camerasInFeed.size > 0) {
 		var footage = "<h2>Latest footage from each camera</h2>";
 
 		camerasInFeed.forEach((item, i) => {
-			var latestFootage = feed.filter(x => x.Camera == item)[0];
+			if(processed < 3) {
+				var latestFootage = feed.filter(x => x.Camera == item)[0];
+				footage += OutputClipRow(latestFootage, i, true);
+			}
 
-			footage += OutputClipRow(latestFootage, i, true);
+			processed++;
 		});
 
 		$("#footage").html(footage);
