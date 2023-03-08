@@ -98,7 +98,9 @@ function FetchFeed() {
 	.done(function(data) {
 		feed = data;
 		feedLoaded = true;
-		HideLoading();
+		
+		if(!(page.url != "home" || page.url == "sitemap"))
+			HideLoading();
 	})
 	.fail(function() {
 		feed = "failed";
@@ -119,7 +121,7 @@ function HomePage() {
 	var processed = 0;
 
 	if(camerasInFeed.size > 0) {
-		var footage = "<h2>Latest footage from each camera</h2>";
+		var footage = "";
 
 		camerasInFeed.forEach((item, i) => {
 			if(processed < 3) {
@@ -132,6 +134,8 @@ function HomePage() {
 
 		$("#footage").html(footage);
 	}
+
+	HideLoading();
 }
 
 function FootagePage() {
@@ -271,6 +275,8 @@ function SitemapPage() {
 	}
 
 	$("#footageSitemap").html(html);
+
+	HideLoading();
 }
 
 function OutputYearsAndMonths(specificYear) {
@@ -697,7 +703,8 @@ function NewContentLoadedFunctions(page) {
 	$("nav li a").removeClass("active");
 	$("nav li a.nav-link-" + page.url).addClass("active");
 
-	HideLoading();
+	if(!(page.url == "home" || page.url == "sitemap"))
+		HideLoading();
 	
 	if(page.url == "footage") {
 		FootagePage();
@@ -708,7 +715,7 @@ function NewContentLoadedFunctions(page) {
 	}
 
 	if(page.url == "sitemap") {
-		SitemapPage();
+		setTimeout(SitemapPage, 100);
 	}
 	
 	firstContent = false;
