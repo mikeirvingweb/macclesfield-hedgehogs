@@ -182,6 +182,8 @@ function FootagePage() {
 
 	if($(".video-playback video").length > 0)
 		$(".video-playback video")[0].play();
+
+	HideLoading();
 }
 
 function SitemapPage() {
