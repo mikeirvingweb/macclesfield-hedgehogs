@@ -27,9 +27,15 @@ function PathToPage(passedPage) {
 
 var monthNotes = [
 	{ 
+		year: 2023, month: 4,
+		notes: 
+			"<p>Hedgehogs visiting daily, and exploring the wider garden.</p>"
+	},
+	{ 
 		year: 2023, month: 3,
 		notes: 
-			"<p><strong>Hedgehogs have emerged from hibernation!</strong>, check out <a class=\"highlight\" href=\"/footage?date=2023-03-06\">6th March</a> (or later).</p>"
+			"<p>Hedgehogs emerged from hibernation in March 2023, with footage available from the <a class=\"highlight\" href=\"/footage?date=2023-03-06\">6th of March</a>.</p>" +
+			"<p>By the month end, hedgehogs were back visiting daily, with lots of big and small hogs spotted in the garden.</p>"
 	},
 	{ 
 		year: 2023, month: 2,
