@@ -29,7 +29,9 @@ var monthNotes = [
 	{ 
 		year: 2023, month: 4,
 		notes: 
-			"<p>Hedgehogs visiting daily, and exploring the wider garden.</p>"
+			"<p>Hedgehogs visiting daily, and exploring the wider garden!</p>" +
+			"<p>There appeared to be a lot of feeding / re-fuelling, after Easter, then some <em>interaction<em>, see <a class=\"highlight\" href=\"/footage?video=2023-04-12-00-44-12_Ceyomur-CY95_VD-00009.MP4\">12th of April at 00:44:12</a>.</p>" +
+			"<p>Visits appeared to tail off towards the month end, perhaps the hedgehogs were getting full, or had started nesting.</p>"
 	},
 	{ 
 		year: 2023, month: 3,
