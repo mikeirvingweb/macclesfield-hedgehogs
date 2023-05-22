@@ -499,9 +499,9 @@ function OutputDayRow(footage, i, showDate) {
 			"<hr>" +
 			"<section class=\"video-row\">" +
 				"<section class=\"video-holder\">" +
-					"<video class=\"click-through\" onclick=\"$('#video-" + i + "')[0].click()\" preload=\"none\" poster=\"" + footage.URL + ".jpg\">" +
-						"<source src=\"" + footage.URL + "\"></source>" +
-					"</video>" +
+					"<a href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">" +
+						"<img alt=\"" + siteName + " clip from " + dateString + ", " + timeString + ". Camera: " + GetNiceCameraName(footage.Camera) + "\" src=\"" + footage.URL + ".jpg\">" +
+					"</a>" +
 				"</section>" +
 				"<section class=\"video-details\">" +
 				"<p><a class=\"button-link play\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">Play Video</a></p>" +
@@ -545,9 +545,9 @@ function OutputClipRow(footage, i) {
 	var html =
 		"<section class=\"clip\">" +
 			"<section class=\"clip-holder\">" +
-				"<video class=\"click-through\" onclick=\"$('#video-" + i + "-1')[0].click()\" preload=\"none\" poster=\"" + footage.URL + ".jpg\">" +
-					"<source src=\"" + footage.URL + "\"></source>" +
-				"</video>" +
+				"<a href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">" +
+					"<img alt=\"" + siteName + " clip from " + dateString + ", " + timeString + ". Camera: " + GetNiceCameraName(footage.Camera) + "\" src=\"" + footage.URL + ".jpg\">" +
+				"</a>" +
 			"</section>" +
 			"<section class=\"clip-details\">" +
 				"<p>" +
