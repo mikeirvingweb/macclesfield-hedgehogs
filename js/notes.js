@@ -5,6 +5,7 @@ var monthNotes = [
 		year: 2023, month: 5,
 		notes: 
 			"<p>Like late April, May has started off quietly, with just a few <em>'house'</em> visits per day from hedgehogs.</p>" +
+			"<p>It would then be sporadic, busy some days, quiet on other days. No visits on very hot nights.</p>" +
 			"<p>Plenty walking about in the garden still though, likely foraging for natural food options.</p>"
 	},
 	{ 
