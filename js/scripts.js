@@ -1,4 +1,6 @@
-var siteURL = "", siteName = "Macclesfield Hedgehogs", path = "", page = null, feedLoaded = false, feed = null, feedURL = "https://macclesfield-hedgehogs.s3.eu-west-2.amazonaws.com/videos.json";
+var siteURL = "", siteName = "Macclesfield Hedgehogs", path = "", page = null;
+var feed = null, feedURL = "https://macclesfield-hedgehogs.s3.eu-west-2.amazonaws.com/videos.json";
+var monthNotes = null, monthNotesURL = "/data/notes.json";
 
 function PathToPage(passedPage) {
     path = (passedPage != null && passedPage != "")? passedPage : window.location.pathname.toLowerCase();
@@ -36,7 +38,7 @@ function SetShareMetaTags(videoPage) {
 }
 
 function FirstLoad() {
-	FetchFeed();
+	FetchNotes();
 
 	let currentYear = new Date().getFullYear();
 	$("#footerYear").text("2022" + ((currentYear > 2022)? " - " + currentYear : ""));
@@ -44,11 +46,24 @@ function FirstLoad() {
 	LoadPage(PathToPage());
 }
 
+function FetchNotes() {
+	$.get( monthNotesURL, function() {} )
+	.done(function(data) {
+		monthNotes = data;
+
+		FetchFeed();
+	})
+	.fail(function() {
+		feed = "failed";
+		HideLoading();
+	})
+	.always(function() {} );
+}
+
 function FetchFeed() {
 	$.get( feedURL, function() {} )
 	.done(function(data) {
 		feed = data;
-		feedLoaded = true;
 		
 		if(!(page.url != "home" || page.url == "sitemap"))
 			HideLoading();
