@@ -266,7 +266,7 @@ function OutputYearsAndMonths(specificYear) {
 			$("p#title").text("All Footage - " + siteName);
 
 			html +=
-				"<p>All footage currently in the system.</p>" + 
+				"<p>All months currently in the system.</p>" + 
 				"<p>Please select a Year or Month.</p>" +
 				"<p>Selectable entries are highlighted.</p>";
 		} else {
@@ -327,7 +327,7 @@ function OutputYearsAndMonths(specificYear) {
 				for(var i = 0; i < 12; i++) {
 					html +=
 						"<td>" +
-							((months.indexOf(PadNumber(i + 1)) > -1)? "<a href=\"/footage?date=" + year + "-" + PadNumber(i + 1) + "\">" : "") +
+							(((months.indexOf(PadNumber(i + 1)) > -1) || (monthNotes.filter(x => x.year == parseInt(year) && x.month == (i + 1)).length > 0))? "<a href=\"/footage?date=" + year + "-" + PadNumber(i + 1) + "\">" : "") +
 								"<div class=\"heading\"><span class=\"desktop-only-inline\">" + monthNames[i] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[i] + "</span></div>" +
 								"<div class=\"count\"></div>" +
 								((months.indexOf(PadNumber(i + 1)) > -1)? "</a>" : "")+
