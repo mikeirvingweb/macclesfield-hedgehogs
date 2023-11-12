@@ -1,8 +1,13 @@
 [
 	{ 
+		"year": 2023, "month": 11,
+		"notes": 
+			"<p>Just as in late October, there have been no hedgehog sightings.</p>\n\n<p>Winter hibernation has likely begun.</p>"
+	},
+	{ 
 		"year": 2023, "month": 10,
 		"notes": 
-			"<p>A busy start to October. The food offering is now back to the classic cat biscuits.</p>\n\n<p>Lots of foraging in the grass too, squirrels have been hiding things in preparation for winter.</p>\n\n<p>The weather has proved quite variable. Hot, Cold, Wet, Windy. Hedgehogs absent towards the month end.</p>"
+			"<p>A busy start to October. The food offering is now back to the classic cat biscuits.</p>\n\n<p>Lots of foraging in the grass too, squirrels have been hiding things in preparation for winter.</p>\n\n<p>The weather has proved quite variable. Hot, Cold, Wet, Windy.</p>\n\n<p>Hedgehogs absent towards the month end. Though earlier than last year, hibernation may have begun.</p>"
 	},
 	{ 
 		"year": 2023, "month": 9,
