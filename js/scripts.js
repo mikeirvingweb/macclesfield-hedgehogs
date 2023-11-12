@@ -355,32 +355,34 @@ function OutputMonth(specificYear, specificMonth) {
 
 	var monthFeed = feed.filter(x => x.Date.startsWith(specificYear + "-" + specificMonth));
 
-	if(monthFeed.length > 0) {
+	var notes = monthNotes.filter(x => x.year == parseInt(specificYear) && x.month == parseInt(specificMonth));
+
+	if((monthFeed.length > 0) || (notes.length > 0)) {
 		$("#h1").text(monthNames[parseInt(specificMonth) - 1] + " " + specificYear);
 
 		$("p#title").text("Footage from " + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + " - " + siteName);
 
-		html += "<p>Footage from " + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + ".</p>" +
-			"<p>Selectable entries are highlighted.</p>";
+		if(monthFeed.length > 0) {
+			html += "<p>Footage from " + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + ".</p>" +
+				"<p>Selectable entries are highlighted.</p>";
+		}
 
-		var notes = monthNotes.filter(x => x.year == parseInt(specificYear) && x.month == parseInt(specificMonth));
-		
 		if(notes.length > 0) {
 			html += 
-				"<h2>Editor's notes</h2>" +
+				((monthFeed.length > 0)? "<h2>Editor's notes</h2>" : "")+
 				notes[0].notes;
 		}
 			
 		html +=	"<div class=\"prev-next\">";
 
-		var previous = feed.filter(x => !x.Date.startsWith(specificYear + "-" + specificMonth) && x.Date < specificYear + "-" + specificMonth).at(0)
+		var previous = feed.filter(x => !x.Date.startsWith(specificYear + "-" + specificMonth) && x.Date < specificYear + "-" + specificMonth).at(0);
 
 		if(previous != null) {
 			var prevYear = previous.Date.substring(0, 4), prevMonth = previous.Date.substring(5, 7);
 			html += "<a class=\"button-link prev\" href=\"/footage?date=" + prevYear + "-" + prevMonth + "\"><span class=\"desktop-only-inline\">" + monthNames[parseInt(prevMonth) - 1] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[parseInt(prevMonth) - 1] + "</span> " + prevYear + "</a>";
 		}
 
-		var next = feed.filter(x => !x.Date.startsWith(specificYear + "-" + specificMonth) && x.Date > specificYear + "-" + specificMonth).at(-1)
+		var next = feed.filter(x => !x.Date.startsWith(specificYear + "-" + specificMonth) && x.Date > specificYear + "-" + specificMonth).at(-1);
 
 		if(next != null) {
 			var nextYear = next.Date.substring(0, 4), nextMonth = next.Date.substring(5, 7);
@@ -388,62 +390,67 @@ function OutputMonth(specificYear, specificMonth) {
 		}
 
 		html += "</div>";
-		
-		var startDay = new Date(specificYear + "-" + specificMonth + "-01").getDay();
 
-		if(startDay == 0)
-			startDay = 7;
 
-		html +=
-			"<table class=\"calendar\">" +
-				"<thead>" +
-					"<tr><th colspan=\"7\">" + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + "</th></tr>" +
-					"<tr>" +
-						"<th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th>" +
-					"</tr>" +
-				"</thead>"
-				"<tbody>"
-					"<tr>";
 
-		if(startDay != 1) {
-			for(i = 1; i < startDay; i++) {
-				html += "<td></td>";
-			}
-		}
+		if(monthFeed.length > 0){
+			var startDay = new Date(specificYear + "-" + specificMonth + "-01").getDay();
 
-		for(i = 1; i <= DaysInMonth(specificYear, specificMonth); i++) {
-			var dayItems = monthFeed.filter(x => x.Date.startsWith(specificYear + "-" + specificMonth + "-" + PadNumber(i))).length;
-			totalCount += dayItems;
-			
+			if(startDay == 0)
+				startDay = 7;
+
 			html +=
-				"<td>" +
-					((dayItems < 1)? "" : "<a href=\"/footage?date=" + specificYear + "-" + specificMonth + "-" + PadNumber(i) + "\" title=\"" + i + DayPostfix(i) + " " + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + " - " + dayItems + " video" + ((dayItems > 1)? "s" : "") + "\">") +
-						"<div class=\"heading\">" + i + "</div>" +
-						((dayItems < 1)? "<div class=\"count-spacer\"></div>" : "<div class=\"count\"><span>" + dayItems + "</span></div>")
-					+ ((dayItems < 1)? "" : "</a>") +
-				"</td>";
+				"<table class=\"calendar\">" +
+					"<thead>" +
+						"<tr><th colspan=\"7\">" + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + "</th></tr>" +
+						"<tr>" +
+							"<th>M</th><th>T</th><th>W</th><th>T</th><th>F</th><th>S</th><th>S</th>" +
+						"</tr>" +
+					"</thead>"
+					"<tbody>"
+						"<tr>";
 
-			if(new Date(specificYear + "-" + specificMonth + "-" + PadNumber(i)).getDay() == 0)
-				html += "</tr><tr>";
-		}
-
-		var lastDay = new Date(specificYear + "-" + specificMonth + "-" + PadNumber(DaysInMonth(specificYear, specificMonth))).getDay();
-
-		if((lastDay > 0))
-		{
-			for(i = lastDay; i < 7; i++) {
-				html += "<td></td>";
+			if(startDay != 1) {
+				for(i = 1; i < startDay; i++) {
+					html += "<td></td>";
+				}
 			}
-		}
 
-		html += "</tr>" +
-			"</table>";
+			for(i = 1; i <= DaysInMonth(specificYear, specificMonth); i++) {
+				var dayItems = monthFeed.filter(x => x.Date.startsWith(specificYear + "-" + specificMonth + "-" + PadNumber(i))).length;
+				totalCount += dayItems;
+				
+				html +=
+					"<td>" +
+						((dayItems < 1)? "" : "<a href=\"/footage?date=" + specificYear + "-" + specificMonth + "-" + PadNumber(i) + "\" title=\"" + i + DayPostfix(i) + " " + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + " - " + dayItems + " video" + ((dayItems > 1)? "s" : "") + "\">") +
+							"<div class=\"heading\">" + i + "</div>" +
+							((dayItems < 1)? "<div class=\"count-spacer\"></div>" : "<div class=\"count\"><span>" + dayItems + "</span></div>")
+						+ ((dayItems < 1)? "" : "</a>") +
+					"</td>";
+
+				if(new Date(specificYear + "-" + specificMonth + "-" + PadNumber(i)).getDay() == 0)
+					html += "</tr><tr>";
+			}
+
+			var lastDay = new Date(specificYear + "-" + specificMonth + "-" + PadNumber(DaysInMonth(specificYear, specificMonth))).getDay();
+
+			if((lastDay > 0))
+			{
+				for(i = lastDay; i < 7; i++) {
+					html += "<td></td>";
+				}
+			}
+
+			html += "</tr>" +
+				"</table>";
+		}
 
 		html +=
+			"<div class=\"clear\"></div>" +
 			"<p><a class=\"button-link back\" href=\"/footage?date=" + specificYear + "\">Back to " + specificYear + "</a></p>";
 	}
 	
-	return (totalCount > 0)? html : "";
+	return html;
 }
 
 function OutputDay(specificYear, specificMonth, specificDay) {
