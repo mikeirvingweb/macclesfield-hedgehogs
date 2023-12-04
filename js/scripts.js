@@ -206,9 +206,6 @@ function SitemapPage() {
 	HideLoading();
 }
 
-	HideLoading();
-}
-
 function OutputYearsAndMonths(specificYear) {
 	var years = [], months = [];
 
