@@ -178,71 +178,33 @@ function SitemapPage() {
 			
 			html += "<a href=\"/footage?date=" + year + "\">" + year + "</a>";
 
-			months = [];
-
-			feed.filter(x => x.Date.startsWith(year)).forEach((item) => {
-				var month = item.Date.split("-")[1];
-
-				if(months[months.length -1] == null || months[months.length -1] != month)
-					months.push(month)
-			});
+			for(i=12; i>0; i--) {
+				if(monthNotes.filter(x => x.year == parseInt(year) && parseInt(x.month) == i).length > 0)
+					months.push(i);
+			}
 
 			if(months.length > 0) {
 				html += "<ul>";
 
 				months.forEach((month) => {
-					html += "<li>";
-
-					html += "<p><a href=\"/footage?date=" + year + "-" + month + "\">" + monthNames[parseInt(month) - 1] + "</a></p>";
-
-					var monthFeed = feed.filter(x => x.Date.startsWith(year + "-" + month));
-
-					for(i = 1; i <= DaysInMonth(year, month); i++) {
-						var dayItems = monthFeed.filter(x => x.Date.startsWith(year + "-" + month + "-" + PadNumber(i))).length;
-						
-						if(dayItems > 0) {
-							html += "<ul>";
-
-							var dayFeed = feed.filter(x => x.Date.startsWith(year + "-" + month + "-" + PadNumber(i))),
-								dateString = dayNamesShort[DataDateToRealDate(dayFeed[0].Date).getDay()] + " " + DataDateToRealDate(dayFeed[0].Date).getDate() + DayPostfix(DataDateToRealDate(dayFeed[0].Date).getDate()) + " " + monthNamesShort[DataDateToRealDate(dayFeed[0].Date).getMonth()] + " " + DataDateToRealDate(dayFeed[0].Date).getFullYear();
-
-							if(dayFeed.length > 0) {
-								html += "<li>";
-								html += "<p><a href=\"/footage?date=" + year + "-" + month + "-" + PadNumber(i) + "\">" + dateString + "</a></p>";
-
-								html += "<ul>";
-
-								dayFeed.forEach((footage, i) => {
-									html += "<li>";
-
-									var timeString = DataDateToRealDate(footage.Date).toTimeString().split(' ')[0];
-									html += "<p><a href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">" + timeString + "</a></p>";
-
-									html += "</li>";
-								});
-
-								html += "</ul>";
-
-								html += "</li>";
-							}
-
-							html += "</ul>";
-						}
-					}
-
-					html += "</li>";
+					html += "<li><a href=\"/footage?date=" + year + "-" + PadNumber(month) + "\">" + monthNames[month - 1] + "</a></li>";
 				});
 
 				html += "</ul>";
 			}
 
 			html += "</li>";
+
+			months = [];
 		});
 
 		html += "</ul>";
 	}
 
 	$("#footageSitemap").html(html);
+
+	HideLoading();
+}
 
 	HideLoading();
 }
