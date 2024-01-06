@@ -218,6 +218,11 @@ function OutputYearsAndMonths(specificYear) {
 			years.push(year);
 	});
 
+	if(!years.indexOf(monthNotes[0].year.toString()) > -1) {
+		years.push(monthNotes[0].year.toString());
+		years = years.sort().reverse();
+	}
+
 	if(years.length > 0) {
 		if(IsNullOrEmpty(specificYear)) {
 			$("#h1").text("All Footage");
@@ -266,40 +271,37 @@ function OutputYearsAndMonths(specificYear) {
 					months.push(month)
 			});
 
-			if(months.length > 0) {
+			html +=
+				"<table class=\"calendar\">" +
+					"<thead>" +
+						"<tr>" +
+							"<th colspan=\"4\">" + 
+								((IsNullOrEmpty(specificYear))?
+									"<a href=\"/footage?date=" + year + "\">" + year + "</a>"
+									:
+									year
+								) +
+							"</th>" +
+						"</tr>" +
+					"</thead>"
+					"<tbody>"
+						"<tr>";
+
+			for(var i = 0; i < 12; i++) {
 				html +=
-					"<table class=\"calendar\">" +
-						"<thead>" +
-							"<tr>" +
-								"<th colspan=\"4\">" + 
-									((IsNullOrEmpty(specificYear))?
-										"<a href=\"/footage?date=" + year + "\">" + year + "</a>"
-										:
-										year
-									) +
-								"</th>" +
-							"</tr>" +
-						"</thead>"
-						"<tbody>"
-							"<tr>";
+					"<td>" +
+						(((months.indexOf(PadNumber(i + 1)) > -1) || (monthNotes.filter(x => x.year == parseInt(year) && x.month == (i + 1)).length > 0))? "<a href=\"/footage?date=" + year + "-" + PadNumber(i + 1) + "\">" : "") +
+							"<div class=\"heading\"><span class=\"desktop-only-inline\">" + monthNames[i] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[i] + "</span></div>" +
+							"<div class=\"count\"></div>" +
+							((months.indexOf(PadNumber(i + 1)) > -1)? "</a>" : "")+
+					"</td>";
 
-				for(var i = 0; i < 12; i++) {
-					html +=
-						"<td>" +
-							(((months.indexOf(PadNumber(i + 1)) > -1) || (monthNotes.filter(x => x.year == parseInt(year) && x.month == (i + 1)).length > 0))? "<a href=\"/footage?date=" + year + "-" + PadNumber(i + 1) + "\">" : "") +
-								"<div class=\"heading\"><span class=\"desktop-only-inline\">" + monthNames[i] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[i] + "</span></div>" +
-								"<div class=\"count\"></div>" +
-								((months.indexOf(PadNumber(i + 1)) > -1)? "</a>" : "")+
-						"</td>";
-
-					if(parseInt( (i+1) / 4 ) == ((i+1) / 4))
-						html += "</tr><tr>";
-				}
-
-				html += "</tr>" +
-					"</table>";
-
+				if(parseInt( (i+1) / 4 ) == ((i+1) / 4))
+					html += "</tr><tr>";
 			}
+
+			html += "</tr>" +
+				"</table>";
 		});
 
 		if(!IsNullOrEmpty(specificYear))
@@ -349,8 +351,6 @@ function OutputMonth(specificYear, specificMonth) {
 		}
 
 		html += "</div>";
-
-
 
 		if(monthFeed.length > 0){
 			var startDay = new Date(specificYear + "-" + specificMonth + "-01").getDay();
