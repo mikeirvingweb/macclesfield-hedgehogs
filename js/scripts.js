@@ -218,7 +218,7 @@ function OutputYearsAndMonths(specificYear) {
 			years.push(year);
 	});
 
-	if(!(years.indexOf(monthNotes[0].year.toString())) > -1) {
+	if(!(years.indexOf(monthNotes[0].year.toString()) > -1)) {
 		years.push(monthNotes[0].year.toString());
 		years = years.sort().reverse();
 	}
