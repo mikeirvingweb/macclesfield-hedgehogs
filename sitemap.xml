@@ -37,7 +37,7 @@ permalink: /sitemap.xml
     <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
   </url>
   <url>
-    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date=2024-01{{ site.time | date: '%Y-%m' }}</loc>
+    <loc>https://www.macclesfieldhedgehogs.co.uk/footage?date=2024-01</loc>
     <lastmod>{{ site.time | date: '%Y-%m-%d' }}</lastmod>
   </url>
   <url>
