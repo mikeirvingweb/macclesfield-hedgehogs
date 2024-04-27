@@ -232,7 +232,7 @@ function OutputYearsAndMonths(specificYear) {
 			html +=
 				"<p>All months currently in the system.</p>" + 
 				"<p>Please select a Year or Month.</p>" +
-				"<p>Selectable entries are highlighted. Months with a hedgehog icon have hadgehog footage.</p>";
+				"<p>Selectable entries are highlighted. Months with a hedgehog icon have hedgehog footage.</p>";
 		} else {
 			$("#h1").text(specificYear);
 
@@ -240,7 +240,7 @@ function OutputYearsAndMonths(specificYear) {
 
 			html += "<p>Footage from " + specificYear + ".</p>" +
 				"<p>Please select a month.</p>" +
-				"<p>Selectable entries are highlighted. Months with a hedgehog icon have hadgehog footage.</p>";
+				"<p>Selectable entries are highlighted. Months with a hedgehog icon have hedgehog footage.</p>";
 
 			html +=	"<div class=\"prev-next\">";
 
