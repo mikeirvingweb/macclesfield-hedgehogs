@@ -134,6 +134,10 @@ table.calendar td a div.heading, table.calendar th a {display: block; background
 table.calendar td div.count {background-color: var(--link-button); opacity: 0.5;}
 table.calendar td div.count span {background-color: #ddd; height: 24px; display: inline-block; border-radius: 50% 50%; font-size: 0.75em; padding: 0px 8px; cursor: help;}
 table.calendar td div.count-spacer {height: 28px;}
+
+table.calendar td.no-hedgehogs a .heading { opacity: 0.8; }
+table.calendar td.hedgehogs a .heading { background-image: url(/images/hedgehog-l-to-r.png); background-repeat: no-repeat; background-size: 75px; background-position: -48px -18px; }
+
 footer {color: #eee; margin-top: 1em; padding: 0.5em 0 0.5em 0; font-size:0.7em; min-height:21px; margin-bottom: 1em; position:relative; display:block; float:left; width:100%; position:relative; text-align: center;}
 #contentDiv {position:relative; float:left; overflow:auto; width: calc(100% - 16px); padding: 8px 8px 0 8px; overflow:visible; min-height: 320px;background: #999;}
 #contentEnd {position:relative; float:left; overflow:auto; width: calc(100% - 16px); padding: 0 8px 8px 8px; overflow:visible; background: #999; text-align: center;}
@@ -153,6 +157,8 @@ em {font-style: italic;}
     .mobile-only-inline {display: inline-block;}
     body {font-size: 0.9em;}
     .video-row .video-details {padding: 0 16px;}
+
+    table.calendar td.hedgehogs a .heading { background-size: 50px; background-position: -32px -11px; }
 }
 
 @media screen and (min-width: 1000px) {

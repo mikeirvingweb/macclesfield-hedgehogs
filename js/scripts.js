@@ -232,7 +232,7 @@ function OutputYearsAndMonths(specificYear) {
 			html +=
 				"<p>All months currently in the system.</p>" + 
 				"<p>Please select a Year or Month.</p>" +
-				"<p>Selectable entries are highlighted.</p>";
+				"<p>Selectable entries are highlighted. Months with a hedgehog icon have hadgehog footage.</p>";
 		} else {
 			$("#h1").text(specificYear);
 
@@ -240,7 +240,7 @@ function OutputYearsAndMonths(specificYear) {
 
 			html += "<p>Footage from " + specificYear + ".</p>" +
 				"<p>Please select a month.</p>" +
-				"<p>Selectable entries are highlighted.</p>";
+				"<p>Selectable entries are highlighted. Months with a hedgehog icon have hadgehog footage.</p>";
 
 			html +=	"<div class=\"prev-next\">";
 
@@ -293,7 +293,7 @@ function OutputYearsAndMonths(specificYear) {
 					hedgehogs = (notes != null && notes.hedgehogs);
 
 				html +=
-					"<td" + (hedgehogs? " class=\"hedgehogs\"" : "") + ">" +
+					"<td class=\"" + (hedgehogs? "" : "no-") + "hedgehogs\">" +
 						(((months.indexOf(PadNumber(i + 1)) > -1) || (notes != null))? "<a href=\"/footage?date=" + year + "-" + PadNumber(i + 1) + "\">" : "") +
 							"<div class=\"heading\"><span class=\"desktop-only-inline\">" + monthNames[i] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[i] + "</span></div>" +
 							"<div class=\"count\"></div>" +
