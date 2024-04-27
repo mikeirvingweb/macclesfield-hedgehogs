@@ -1,106 +1,107 @@
 [
 	{ 
 		"year": 2024, "month": 4,
-		"notes": 
-			"<p>It's April! Hopefully busy with lots of hedgehog visits 🦔 The mice are certainly visiting lots 🐁</p>"
+		"notes": "<p>It's April! Hopefully busy with lots of hedgehog visits 🦔 The mice are certainly visiting lots 🐁</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2024, "month": 3,
-		"notes": 
-			"<p>The first hedgehog of the spring visited on the 12th of March, with more visits on subsequent days 🦔</p>\n\n<p>Lots of Mice activity throughout the month 🐁</p>\n\n<p>Not all cameras back in use after winter yet / sporadic availability 🛠️</p>"
+		"notes": "<p>The first hedgehog of the spring visited on the 12th of March, with more visits on subsequent days 🦔</p>\n\n<p>Lots of Mice activity throughout the month 🐁</p>\n\n<p>Not all cameras back in use after winter yet / sporadic availability 🛠️</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2024, "month": 2,
-		"notes": 
-			"<p>Will the hedgehogs return from hibernation this month?</p>\n\n<p>None have visited yet, though a Polecat made an appearnce on the 16th 🦦</p>"
+		"notes": "<p>Will the hedgehogs return from hibernation this month?</p>\n\n<p>None have visited yet, though a Polecat made an appearnce on the 16th 🦦</p>",
+		"hedgehogs": false
 	},
 	{ 
 		"year": 2024, "month": 1,
-		"notes": 
-			"<p>It's quiet in here, awaiting the end of hibernation. Check out the visiting badger on 17th though 🦡</p>"
+		"notes": "<p>It's quiet in here, awaiting the end of hibernation. Check out the visiting badger on 17th though 🦡</p>",
+		"hedgehogs": false
 	},
 	{ 
 		"year": 2023, "month": 12,
-		"notes": 
-			"<p>The month of December started with sub-zero temperatures, in the daytime as well as at overnight!</p>\n\n<p>Hedgehogs hibernating. Occasional visits, or mice footage, may feature.</p>"
+		"notes": "<p>The month of December started with sub-zero temperatures, in the daytime as well as at overnight!</p>\n\n<p>Hedgehogs hibernating. Occasional visits, or mice footage, may feature.</p>",
+		"hedgehogs": false
 	},
 	{ 
 		"year": 2023, "month": 11,
-		"notes": 
-			"<p>Just as in late October, there have been no hedgehog sightings.</p>\n\n<p>Winter hibernation has likely begun.</p>"
+		"notes": "<p>Just as in late October, there have been no hedgehog sightings.</p>\n\n<p>Winter hibernation has likely begun.</p>",
+		"hedgehogs": false
 	},
 	{ 
 		"year": 2023, "month": 10,
-		"notes": 
-			"<p>A busy start to October. The food offering is now back to the classic cat biscuits.</p>\n\n<p>Lots of foraging in the grass too, squirrels have been hiding things in preparation for winter.</p>\n\n<p>The weather has proved quite variable. Hot, Cold, Wet, Windy.</p>\n\n<p>Hedgehogs absent towards the month end. Though earlier than last year, hibernation may have begun.</p>"
+		"notes": "<p>A busy start to October. The food offering is now back to the classic cat biscuits.</p>\n\n<p>Lots of foraging in the grass too, squirrels have been hiding things in preparation for winter.</p>\n\n<p>The weather has proved quite variable. Hot, Cold, Wet, Windy.</p>\n\n<p>Hedgehogs absent towards the month end. Though earlier than last year, hibernation may have begun.</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2023, "month": 9,
-		"notes": 
-			"<p>Hungry hedgehogs are finishing all, or most, of the food on offer this month.</p>\n\n<p>The month started sunny, with a heatwave, before giving way to more rainy weather.</p>\n\n<p>A new camera, the UsoGood TC30, is now commissioned and has produced it's first footage.</p>\n\n<p>🦡 Badger Attack! See footage from the 23rd September. A badger attempted entry to the hedgehog house!</p>"
+		"notes": "<p>Hungry hedgehogs are finishing all, or most, of the food on offer this month.</p>\n\n<p>The month started sunny, with a heatwave, before giving way to more rainy weather.</p>\n\n<p>A new camera, the UsoGood TC30, is now commissioned and has produced it's first footage.</p>\n\n<p>🦡 Badger Attack! See footage from the 23rd September. A badger attempted entry to the hedgehog house!</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2023, "month": 8,
-		"notes": 
-			"<p>August began with not so many 'in house' visits, after a very wet July, but instead lots of foraging in the garden.</p>\n\n<p>Certain days have produced no footage at all. The weather has been very random this summer!</p>\n\n<p>More visits towards the month end, perhaps fattening up for the Autumn / Winter has begun.</p>"
+		"notes": "<p>August began with not so many 'in house' visits, after a very wet July, but instead lots of foraging in the garden.</p>\n\n<p>Certain days have produced no footage at all. The weather has been very random this summer!</p>\n\n<p>More visits towards the month end, perhaps fattening up for the Autumn / Winter has begun.</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2023, "month": 7,
-		"notes": 
-			"<p>The hot start to summer, through May and June, has given way to heavy rain through much of July (so far).</p>\n\n<p>This is affecting hedgehog visits, which have often been days apart (particularly indoor 'hedgehog house' visits).</p>"
+		"notes": "<p>The hot start to summer, through May and June, has given way to heavy rain through much of July (so far).</p>\n\n<p>This is affecting hedgehog visits, which have often been days apart (particularly indoor 'hedgehog house' visits).</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2023, "month": 6,
-		"notes": 
-			"<p>Hot summer nights are resulting in a lot less hedgehog visits, and less predicatable arrival times.</p>\n\n<p>Much needed rain arrived towards the end of the month, and visits ended on a high note.</p>"
+		"notes": "<p>Hot summer nights are resulting in a lot less hedgehog visits, and less predicatable arrival times.</p>\n\n<p>Much needed rain arrived towards the end of the month, and visits ended on a high note.</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2023, "month": 5,
-		"notes": 
-			"<p>Like late April, May has started off quietly, with just a few <em>'house'</em> visits per day from hedgehogs.</p>\n\n<p>It would then be sporadic, busy some days, quiet on other days. No visits on very hot nights.</p>\n\n<p>Plenty walking about in the garden still though, likely foraging for natural food options.</p>"
+		"notes": "<p>Like late April, May has started off quietly, with just a few <em>'house'</em> visits per day from hedgehogs.</p>\n\n<p>It would then be sporadic, busy some days, quiet on other days. No visits on very hot nights.</p>\n\n<p>Plenty walking about in the garden still though, likely foraging for natural food options.</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2023, "month": 4,
-		"notes": 
-			"<p>Hedgehogs visiting daily, and exploring the wider garden!</p>\n\n<p>There appeared to be a lot of feeding / re-fuelling, after Winter.</p>\n\n<p>... and some <em>interaction</em>!, see <a class=\"highlight\" href=\"/footage?video=2023-04-12-00-44-12_Ceyomur-CY95_VD-00009.MP4\">12th of April at 00:44:12</a>.</p>\n\n<p>Visits appeared to tail off towards the month end, perhaps the hedgehogs were getting full, or had started nesting.</p>"
+		"notes": "<p>Hedgehogs visiting daily, and exploring the wider garden!</p>\n\n<p>There appeared to be a lot of feeding / re-fuelling, after Winter.</p>\n\n<p>... and some <em>interaction</em>!, see <a class=\"highlight\" href=\"/footage?video=2023-04-12-00-44-12_Ceyomur-CY95_VD-00009.MP4\">12th of April at 00:44:12</a>.</p>\n\n<p>Visits appeared to tail off towards the month end, perhaps the hedgehogs were getting full, or had started nesting.</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2023, "month": 3,
-		"notes": 
-			"<p>Hedgehogs emerged from hibernation in March 2023, with footage available from the <a class=\"highlight\" href=\"/footage?date=2023-03-06\">6th of March</a>.</p>\n\n<p>By the month end, hedgehogs were back visiting daily, with lots of big and small hogs spotted in the garden.</p>"
+		"notes": "<p>Hedgehogs emerged from hibernation in March 2023, with footage available from the <a class=\"highlight\" href=\"/footage?date=2023-03-06\">6th of March</a>.</p>\n\n<p>By the month end, hedgehogs were back visiting daily, with lots of big and small hogs spotted in the garden.</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2023, "month": 2,
-		"notes": 
-			"<p>February 2023 proved to be another 'No Hedgehogs' month, but we had mice visiting.</p>\n\n<p>The downtime gave a good opportunity to work on many tech and performance improvements.</p>\n\n<p>Like the previous few months, <strong>for hedgehogs</strong>, check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November 2022</a>.</p>"
+		"notes": "<p>February 2023 proved to be another 'No Hedgehogs' month, but we had mice visiting.</p>\n\n<p>The downtime gave a good opportunity to work on many tech and performance improvements.</p>\n\n<p>Like the previous few months, <strong>for hedgehogs</strong>, check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November 2022</a>.</p>",
+		"hedgehogs": false
 	},
 	{ 
 		"year": 2023, "month": 1,
-		"notes": 
-			"<p>The hedgehogs have started the year in hibernation. Mice are the only visitors.</p>\n\n<p><strong>For lots of Hedgehogs</strong>, please check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November 2022</a>.</p>"
+		"notes": "<p>The hedgehogs have started the year in hibernation. Mice are the only visitors.</p>\n\n<p><strong>For lots of Hedgehogs</strong>, please check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November 2022</a>.</p>",
+		"hedgehogs": false
 	},
 	{ 
 		"year": 2022, "month": 12,
-		"notes": 
-			"<p>Website launch month, and aside from the <a href=\"/footage?date=2022-12-01\">1st December</a>, the hedgehogs snubbed the party!</p>\n\n<p>On the following days, only mice would visit.</p>\n\n<p><strong>For lots of Hedgehogs</strong>, please check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November</a>.</p>"
+		"notes": "<p>Website launch month, and aside from the <a href=\"/footage?date=2022-12-01\">1st December</a>, the hedgehogs snubbed the party!</p>\n\n<p>On the following days, only mice would visit.</p>\n\n<p><strong>For lots of Hedgehogs</strong>, please check out <a class=\"highlight\" href=\"/footage?date=2022-11\">November</a>.</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2022, "month": 11,
-		"notes": 
-			"<p>November 2022 was yet again a busy month, for both hedgehogs and mice.</p>"
+		"notes": "<p>November 2022 was yet again a busy month, for both hedgehogs and mice.</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2022, "month": 10,
-		"notes": 
-			"<p>October 2022 proved to be a very busy month for visiting hedgehogs.</p>"
+		"notes": "<p>October 2022 proved to be a very busy month for visiting hedgehogs.</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2022, "month": 9,
-		"notes": 
-			"<p>A lot of the entries early in September are videos of <strong>mice</strong> - the original visitors to the hedgehog house!</p>\n\n<p>Hedgehog footage begins from <a href=\"/footage?date=2022-09-13\">13th September</a>.</p>\n\n<p>Also includes the first spotted footage of <strong>2 hedgehogs</strong>, on the <a href=\"/footage?date=2022-09-29\">29th September</a>, starting at the <a href=\"/footage?video=2022-09-29-22-33-34_Xbro-XC100_SecurityCam-20220929-222834@300490.mp4\">22:33</a> clip.</p>"
+		"notes": "<p>A lot of the entries early in September are videos of <strong>mice</strong> - the original visitors to the hedgehog house!</p>\n\n<p>Hedgehog footage begins from <a href=\"/footage?date=2022-09-13\">13th September</a>.</p>\n\n<p>Also includes the first spotted footage of <strong>2 hedgehogs</strong>, on the <a href=\"/footage?date=2022-09-29\">29th September</a>, starting at the <a href=\"/footage?video=2022-09-29-22-33-34_Xbro-XC100_SecurityCam-20220929-222834@300490.mp4\">22:33</a> clip.</p>",
+		"hedgehogs": true
 	},
 	{ 
 		"year": 2022, "month": 8,
-		"notes": "<p>Cameras first setup in August 2022, and the very first recordings of our spiky friends are captured!</p>"
+		"notes": "<p>Cameras first setup in August 2022, and the very first recordings of our spiky friends are captured!</p>",
+		"hedgehogs": true
 	}
 ]

@@ -288,9 +288,13 @@ function OutputYearsAndMonths(specificYear) {
 						"<tr>";
 
 			for(var i = 0; i < 12; i++) {
+				const notesFilter = monthNotes.filter(x => x.year == parseInt(year) && x.month == (i + 1)),
+					notes = (notesFilter.length > 0)? notesFilter[0] : null,
+					hedgehogs = (notes != null && notes.hedgehogs);
+
 				html +=
-					"<td>" +
-						(((months.indexOf(PadNumber(i + 1)) > -1) || (monthNotes.filter(x => x.year == parseInt(year) && x.month == (i + 1)).length > 0))? "<a href=\"/footage?date=" + year + "-" + PadNumber(i + 1) + "\">" : "") +
+					"<td" + (hedgehogs? " class=\"hedgehogs\"" : "") + ">" +
+						(((months.indexOf(PadNumber(i + 1)) > -1) || (notes != null))? "<a href=\"/footage?date=" + year + "-" + PadNumber(i + 1) + "\">" : "") +
 							"<div class=\"heading\"><span class=\"desktop-only-inline\">" + monthNames[i] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[i] + "</span></div>" +
 							"<div class=\"count\"></div>" +
 							((months.indexOf(PadNumber(i + 1)) > -1)? "</a>" : "")+
