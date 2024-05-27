@@ -1,5 +1,5 @@
 var siteURL = "", siteName = "Macclesfield Hedgehogs", path = "", page = null;
-var feed = null, feedURL = "https://macclesfield-hedgehogs.s3.eu-west-2.amazonaws.com/videos.json";
+var feed = null, feedHost = "https://macclesfield-hedgehogs.s3.eu-west-2.amazonaws.com/", feedURL = feedHost + "videos.json";
 var monthNotes = null, monthNotesURL = "/data/notes.json";
 
 function PathToPage(passedPage) {
@@ -484,12 +484,12 @@ function OutputDayRow(footage, i, showDate) {
 			"<hr>" +
 			"<section class=\"video-row\">" +
 				"<section class=\"video-holder\">" +
-					"<a href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">" +
-						"<img alt=\"" + siteName + " clip from " + dateString + ", " + timeString + ". Camera: " + GetNiceCameraName(footage.Camera) + "\" src=\"" + footage.URL + ".jpg\">" +
+					"<a href=\"/footage?video=" + footage.Key + "\">" +
+						"<img alt=\"" + siteName + " clip from " + dateString + ", " + timeString + ". Camera: " + GetNiceCameraName(footage.Camera) + "\" src=\"" + feedHost + footage.Key + ".jpg\">" +
 					"</a>" +
 				"</section>" +
 				"<section class=\"video-details\">" +
-				"<p><a class=\"button-link play\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">Play Video</a></p>" +
+				"<p><a class=\"button-link play\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.Key + "\">Play Video</a></p>" +
 					((showDate)? "<p><span class=\"desktop-only-inline\">Date:&nbsp;</span><span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span></p>" : "") +
 					"<p><span class=\"desktop-only-inline\">Time:&nbsp;</span>" + timeString + "</p>" +
 					"<p><span class=\"desktop-only-inline\">Camera:&nbsp;</span><a href=\"/cameras#" + footage.Camera + "\" title=\"Click for info on the " + GetNiceCameraName(footage.Camera) + " camera.\">" + GetNiceCameraName(footage.Camera) + "</a></p>" +
@@ -530,14 +530,14 @@ function OutputClipRow(footage, i) {
 	var html =
 		"<section class=\"clip\">" +
 			"<section class=\"clip-holder\">" +
-				"<a href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">" +
-					"<img alt=\"" + siteName + " clip from " + dateString + ", " + timeString + ". Camera: " + GetNiceCameraName(footage.Camera) + "\" src=\"" + footage.URL + ".jpg\">" +
+				"<a href=\"/footage?video=" + footage.Key + "\">" +
+					"<img alt=\"" + siteName + " clip from " + dateString + ", " + timeString + ". Camera: " + GetNiceCameraName(footage.Camera) + "\" src=\"" + feedHost + footage.Key + ".jpg\">" +
 				"</a>" +
 			"</section>" +
 			"<section class=\"clip-details\">" +
 				"<p>" +
-					"<a class=\"button-link play desktop-only\" id=\"video-" + i + "-1\" href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">Play Video</a>" +
-					"<a class=\"button-link play mobile-only\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.URL.split('/').slice(-1)[0] + "\">Play</a>" +
+					"<a class=\"button-link play desktop-only\" id=\"video-" + i + "-1\" href=\"/footage?video=" + footage.Key + "\">Play Video</a>" +
+					"<a class=\"button-link play mobile-only\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.Key + "\">Play</a>" +
 				"</p>" +
 				"<p>" +
 					"<span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span>" +
@@ -554,7 +554,7 @@ function OutputClipRow(footage, i) {
 function OutputVideo(video) {
 	var html = "";
 
-	var footage = feed.filter(x => x.URL.indexOf("/" + video) > -1);
+	var footage = feed.filter(x => x.Key.indexOf(video) > -1);
 
 	if(footage.length > 0){
 		var dateString = dayNames[DataDateToRealDate(footage[0].Date).getDay()] + " " + DataDateToRealDate(footage[0].Date).getDate() + DayPostfix(DataDateToRealDate(footage[0].Date).getDate()) + " " + monthNames[DataDateToRealDate(footage[0].Date).getMonth()] + " " + DataDateToRealDate(footage[0].Date).getFullYear(),
@@ -570,13 +570,13 @@ function OutputVideo(video) {
 
 		html +=	"<div class=\"prev-next\">";
 
-		var currentPosition = feed.findIndex(x => x.URL.indexOf("/" + video) > -1)
+		var currentPosition = feed.findIndex(x => x.Key.indexOf(video) > -1)
 
 		if(currentPosition < (feed.length - 1)) {
 			var previous = feed[currentPosition + 1];
 
 			if(previous != null) {
-				html += "<a class=\"button-link prev\" href=\"/footage?video=" + previous.URL.split('/').slice(-1)[0] + "\">Previous Video</a>";
+				html += "<a class=\"button-link prev\" href=\"/footage?video=" + previous.Key + "\">Previous Video</a>";
 			}
 		}
 
@@ -584,7 +584,7 @@ function OutputVideo(video) {
 			var next = feed[currentPosition - 1];
 
 			if(next != null) {
-				html += "<a class=\"button-link next\" href=\"/footage?video=" + next.URL.split('/').slice(-1)[0] + "\">Next Video</a>";
+				html += "<a class=\"button-link next\" href=\"/footage?video=" + next.Key + "\">Next Video</a>";
 			}
 		}
 
@@ -593,8 +593,8 @@ function OutputVideo(video) {
 		html +=
 			"<section class=\"clear video-playback\">" +
 				"<section class=\"video-holder\">" +
-					"<video controls playsinline autoplay poster=\"" + footage[0].URL + ".jpg\">" +
-						"<source src=\"" + footage[0].URL + "#t=0.001\"></source>" +
+					"<video controls playsinline autoplay poster=\"" + feedHost + footage[0].Key + ".jpg\">" +
+						"<source src=\"" + feedHost + footage[0].Key + "#t=0.001\"></source>" +
 					"</video>" +
 				"</section>" +
 				"<hr>" +
