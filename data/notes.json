@@ -1,5 +1,10 @@
 [
 	{ 
+		"year": 2024, "month": 7,
+		"notes": "<p>Another month of unsettled weather seems to be the blueprint for July.</p>\n\n<p>Not too hot, so hedgehogs are happy to visit for food 🦔</p>",
+		"hedgehogs": true
+	},
+	{ 
 		"year": 2024, "month": 6,
 		"notes": "<p>June is here, starting wet like May, before the weather came warmer with hedgehog visits. 🦔</p>\n\n<p>Squirrel footage was captured on 19th of June too! 🐿️</p>",
 		"hedgehogs": true
