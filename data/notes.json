@@ -1,5 +1,10 @@
 [
 	{ 
+		"year": 2024, "month": 9,
+		"notes": "<p>September begins. Hedgehogs absent, as they were late in August. A prolific cat may be the reason 🐈</p>",
+		"hedgehogs": true
+	},
+	{ 
 		"year": 2024, "month": 8,
 		"notes": "<p>August began very hot 🌞. Hedgehogs happy to visit for food and foraging early in the month.🦔</p>\n\n<p>However, for the last few weeks of August - no hedgehogs! A rampant cat may have been discouraging them 🐈</p>\n\n<p>Apologies for the gap period mid-month. The humans went on holiday, and the batteries depleted fast 🙄</p>",
 		"hedgehogs": true
