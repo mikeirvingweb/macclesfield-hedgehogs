@@ -7,7 +7,7 @@ function PathToPage(passedPage) {
 
 	path = path.split('?')[0].split('&')[0].split('#')[0];
     
-	var pathCleansed = path.replaceAll("/", "");
+	var pathCleansed = path.replaceAll("./", "").replaceAll("/", "");
 
     if(pathCleansed == "" || pathCleansed == "home")
         page = {url: "home", title: "Macclesfield Hedgehogs", metadesc: "A video diary of hedgehogs visiting a garden in Macclesfield.", metakey: "macclesfield hedgehogs, mice, video, wildlife, night vision, cameras"};
