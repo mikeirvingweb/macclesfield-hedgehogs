@@ -1,6 +1,6 @@
 var siteURL = "", siteName = "Macclesfield Hedgehogs", path = "", page = null;
 var feed = null, feedHost = "https://macclesfield-hedgehogs.s3.eu-west-2.amazonaws.com/", feedURL = feedHost + "videos.json";
-var monthNotes = null, monthNotesURL = "../data/notes.json";
+var monthNotes = null, monthNotesURL = "./data/notes.json";
 
 function PathToPage(passedPage) {
     path = (passedPage != null && passedPage != "")? passedPage : window.location.pathname.toLowerCase();
