@@ -37,9 +37,9 @@ footer, header, hgroup, menu, nav, section {
 .clear-with-gap {clear: both; height: 1em;}
 
 body {font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 1.0em; -webkit-text-size-adjust: none; color:#eee; width:100%; background:#333;}
-.page {width:100%; max-width:1000px; position:relative; overflow:auto; margin: 0 auto 0 auto; padding: 0 0 4em 0; background-image: url(/images/page-overlay.png); background-position: bottom center; background-size: 100px 100px; background-repeat: no-repeat;}
+.page {width:100%; max-width:1000px; position:relative; overflow:auto; margin: 0 auto 0 auto; padding: 0 0 4em 0; background-image: url(../images/page-overlay.png); background-position: bottom center; background-size: 100px 100px; background-repeat: no-repeat;}
 
-div.loading {position:fixed; width: 100px; height: 100px; background-repeat: no-repeat; background-size: 100% 100%; background-image: url(/images/loading-indicator.png); top: calc(50% - 50px); left: calc(50% - 50px); animation:spin 2s linear infinite;}
+div.loading {position:fixed; width: 100px; height: 100px; background-repeat: no-repeat; background-size: 100% 100%; background-image: url(../images/loading-indicator.png); top: calc(50% - 50px); left: calc(50% - 50px); animation:spin 2s linear infinite;}
 @keyframes spin {100% {transform: rotate(360deg);} }
 
 a {color: var(--link); text-decoration:none; text-decoration-color: #765b01;}
@@ -49,7 +49,7 @@ strong {font-weight: bold;}
 strong.question {margin-top:1.5em; display:block;}
 header {position:relative; float:left; height:50px; width: 100%;}
 
-header #menu {position:absolute ! important; top: 0; right: 0; background:url(/images/menu.png) 20px 10px no-repeat; background-size: 30px 30px; width:60px; max-width: 18%; height:50px; position:relative; cursor:pointer;}
+header #menu {position:absolute ! important; top: 0; right: 0; background:url(../images/menu.png) 20px 10px no-repeat; background-size: 30px 30px; width:60px; max-width: 18%; height:50px; position:relative; cursor:pointer;}
 
 header .headerMob {position:relative; float:left; display:block; height:50px; width: 100%; background: #777; overflow:hidden;}
 
@@ -136,7 +136,7 @@ table.calendar td div.count span {background-color: #ddd; height: 24px; display:
 table.calendar td div.count-spacer {height: 28px;}
 
 table.calendar td.no-hedgehogs a .heading { opacity: 0.8; }
-table.calendar td.hedgehogs a .heading { background-image: url(/images/hedgehog-l-to-r.png); background-repeat: no-repeat; background-size: 75px; background-position: -48px -18px; }
+table.calendar td.hedgehogs a .heading { background-image: url(../images/hedgehog-l-to-r.png); background-repeat: no-repeat; background-size: 75px; background-position: -48px -18px; }
 
 footer {color: #eee; margin-top: 1em; padding: 0.5em 0 0.5em 0; font-size:0.7em; min-height:21px; margin-bottom: 1em; position:relative; display:block; float:left; width:100%; position:relative; text-align: center;}
 #contentDiv {position:relative; float:left; overflow:auto; width: calc(100% - 16px); padding: 8px 8px 0 8px; overflow:visible; min-height: 320px;background: #999;}
