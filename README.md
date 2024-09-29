@@ -1,6 +1,6 @@
 # Macclesfield Hedgehogs 🦔
 
-🧑‍💻 HTML / CSS / JavaScript Source Code for the [Macclesfield Hedgehogs](https://www.macclesfieldhedgehogs.co.uk/) website.
+🧑‍💻 HTML / CSS / JavaScript Source Code for the [Macclesfield Hedgehogs](https://mikeirvingweb.github.io/macclesfield-hedgehogs/) website.
 
 ⚙️ Runs / Builds as a [Jekyll](https://jekyllrb.com/) website. To run, download Jekyll, download source, then run `jekyll serve` at the root folder.
 

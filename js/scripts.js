@@ -32,7 +32,7 @@ function SetShareMetaTags(videoPage) {
 	$("meta[property='og:description'], meta[name='twitter:description']").attr("content", $("meta[name=description]").attr("content"));
 	$("meta[property='og:url']").attr("content", window.location.href);
 
-	let shareImageURL = videoPage? $($("video")[0]).attr("poster") : "https://www.macclesfieldhedgehogs.co.uk/images/macclesfield-hedgehogs-share.png";
+	let shareImageURL = videoPage? $($("video")[0]).attr("poster") : "/images/macclesfield-hedgehogs-share.png";
 
 	$("meta[property='og:image'], meta[name='twitter:image']").attr("content", shareImageURL);
 }
@@ -82,7 +82,7 @@ function HomePage() {
 		return;
 	}
 
-	var camerasInFeed = new Set(feed.map(x => x.Camera));
+	var camerasInFeed = new Set(feed.filter(x => x.Date < "2024-08-19").map(x => x.Camera));
 
 	var processed = 0;
 
@@ -91,7 +91,13 @@ function HomePage() {
 
 		camerasInFeed.forEach((item, i) => {
 			if(processed < 3) {
-				var latestFootage = feed.filter(x => x.Camera == item)[0];
+				console.log(item);
+				
+				if(item == "Xbro-XC100")
+					var latestFootage = feed.filter(x => x.Date < "2024-08-09").filter(x => x.Camera == item)[1];
+				else
+					var latestFootage = feed.filter(x => x.Date < "2024-08-19").filter(x => x.Camera == item)[0];
+
 				footage += OutputClipRow(latestFootage, i, true);
 			}
 

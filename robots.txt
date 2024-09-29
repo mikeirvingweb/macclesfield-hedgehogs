@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.macclesfieldhedgehogs.co.uk/sitemap.xml
+Sitemap: https://mikeirvingweb.github.io/macclesfield-hedgehogs/sitemap.xml
