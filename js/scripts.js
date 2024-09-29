@@ -682,7 +682,7 @@ function WireUpLinks() {
 function LoadPage(page) {
 	ShowLoading();
 	
-	$.get( "/content/" + page.url.split("?")[0] + ".html", function() {} )
+	$.get( "./content/" + page.url.split("?")[0] + ".html", function() {} )
 	.done(function(data) {
 		$("#contentDiv").html(data);
 		NewContentLoadedFunctions(page);
