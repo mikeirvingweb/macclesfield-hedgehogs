@@ -230,12 +230,12 @@ function OutputYearsAndMonths(specificYear) {
 	}
 
 	if(years.length > 0) {
+		const selectableNotice = "<p>Selectable entries are highlighted. Months with a hedgehog icon have confirmed hedgehog footage.</p>";
+
 		if(IsNullOrEmpty(specificYear)) {
 			$("#h1").text("All Footage");
 
 			$("p#title").text("All Footage - " + siteName);
-
-			const selectableNotice = "<p>Selectable entries are highlighted. Months with a hedgehog icon have confirmed hedgehog footage.</p>";
 
 			html +=
 				"<p>All months currently in the system.</p>" + 
