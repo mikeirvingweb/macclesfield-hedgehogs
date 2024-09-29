@@ -32,7 +32,7 @@ function SetShareMetaTags(videoPage) {
 	$("meta[property='og:description'], meta[name='twitter:description']").attr("content", $("meta[name=description]").attr("content"));
 	$("meta[property='og:url']").attr("content", window.location.href);
 
-	let shareImageURL = videoPage? $($("video")[0]).attr("poster") : "/images/macclesfield-hedgehogs-share.png";
+	let shareImageURL = videoPage? $($("video")[0]).attr("poster") : "images/macclesfield-hedgehogs-share.png";
 
 	$("meta[property='og:image'], meta[name='twitter:image']").attr("content", shareImageURL);
 }
@@ -182,7 +182,7 @@ function SitemapPage() {
 		years.forEach((year) => {
 			html += "<li>";
 			
-			html += "<a href=\"/footage?date=" + year + "\">" + year + "</a>";
+			html += "<a href=\"footage?date=" + year + "\">" + year + "</a>";
 
 			for(i=12; i>0; i--) {
 				if(monthNotes.filter(x => x.year == parseInt(year) && parseInt(x.month) == i).length > 0)
@@ -193,7 +193,7 @@ function SitemapPage() {
 				html += "<ul>";
 
 				months.forEach((month) => {
-					html += "<li><a href=\"/footage?date=" + year + "-" + PadNumber(month) + "\">" + monthNames[month - 1] + "</a></li>";
+					html += "<li><a href=\"footage?date=" + year + "-" + PadNumber(month) + "\">" + monthNames[month - 1] + "</a></li>";
 				});
 
 				html += "</ul>";
@@ -256,14 +256,14 @@ function OutputYearsAndMonths(specificYear) {
 
 			if(previous != null) {
 				var prevYear = previous.Date.substring(0, 4);
-				html += "<a class=\"button-link prev\" href=\"/footage?date=" + prevYear + "\">" + prevYear + "</a>";
+				html += "<a class=\"button-link prev\" href=\"footage?date=" + prevYear + "\">" + prevYear + "</a>";
 			}
 
 			var next = feed.filter(x => !x.Date.startsWith(specificYear) && x.Date > specificYear).at(-1)
 
 			if(next != null) {
 				var nextYear = next.Date.substring(0, 4);
-				html += "<a class=\"button-link next\" href=\"/footage?date=" + nextYear + "\">" + nextYear + "</a>";
+				html += "<a class=\"button-link next\" href=\"footage?date=" + nextYear + "\">" + nextYear + "</a>";
 			}
 
 			html += "</div>";
@@ -285,7 +285,7 @@ function OutputYearsAndMonths(specificYear) {
 						"<tr>" +
 							"<th colspan=\"4\">" + 
 								((IsNullOrEmpty(specificYear))?
-									"<a href=\"/footage?date=" + year + "\">" + year + "</a>"
+									"<a href=\"footage?date=" + year + "\">" + year + "</a>"
 									:
 									year
 								) +
@@ -302,7 +302,7 @@ function OutputYearsAndMonths(specificYear) {
 
 				html +=
 					"<td class=\"" + (hedgehogs? "" : "no-") + "hedgehogs\">" +
-						(((months.indexOf(PadNumber(i + 1)) > -1) || (notes != null))? "<a href=\"/footage?date=" + year + "-" + PadNumber(i + 1) + "\">" : "") +
+						(((months.indexOf(PadNumber(i + 1)) > -1) || (notes != null))? "<a href=\"footage?date=" + year + "-" + PadNumber(i + 1) + "\">" : "") +
 							"<div class=\"heading\"><span class=\"desktop-only-inline\">" + monthNames[i] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[i] + "</span></div>" +
 							"<div class=\"count\"></div>" +
 							((months.indexOf(PadNumber(i + 1)) > -1)? "</a>" : "")+
@@ -317,7 +317,7 @@ function OutputYearsAndMonths(specificYear) {
 		});
 
 		if(!IsNullOrEmpty(specificYear))
-			html +=	"<p><a class=\"button-link back\" href=\"/footage\">Back to All Years</a></p>";
+			html +=	"<p><a class=\"button-link back\" href=\"footage\">Back to All Years</a></p>";
 	}
 
 	return html;
@@ -352,14 +352,14 @@ function OutputMonth(specificYear, specificMonth) {
 
 		if(previous != null) {
 			var prevYear = previous.Date.substring(0, 4), prevMonth = previous.Date.substring(5, 7);
-			html += "<a class=\"button-link prev\" href=\"/footage?date=" + prevYear + "-" + prevMonth + "\"><span class=\"desktop-only-inline\">" + monthNames[parseInt(prevMonth) - 1] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[parseInt(prevMonth) - 1] + "</span> " + prevYear + "</a>";
+			html += "<a class=\"button-link prev\" href=\"footage?date=" + prevYear + "-" + prevMonth + "\"><span class=\"desktop-only-inline\">" + monthNames[parseInt(prevMonth) - 1] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[parseInt(prevMonth) - 1] + "</span> " + prevYear + "</a>";
 		}
 
 		var next = feed.filter(x => !x.Date.startsWith(specificYear + "-" + specificMonth) && x.Date > specificYear + "-" + specificMonth).at(-1);
 
 		if(next != null) {
 			var nextYear = next.Date.substring(0, 4), nextMonth = next.Date.substring(5, 7);
-			html += "<a class=\"button-link next\" href=\"/footage?date=" + nextYear + "-" + nextMonth + "\"><span class=\"desktop-only-inline\">" + monthNames[parseInt(nextMonth) - 1] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[parseInt(nextMonth) - 1] + "</span> " + nextYear + "</a>";
+			html += "<a class=\"button-link next\" href=\"footage?date=" + nextYear + "-" + nextMonth + "\"><span class=\"desktop-only-inline\">" + monthNames[parseInt(nextMonth) - 1] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[parseInt(nextMonth) - 1] + "</span> " + nextYear + "</a>";
 		}
 
 		html += "</div>";
@@ -393,7 +393,7 @@ function OutputMonth(specificYear, specificMonth) {
 				
 				html +=
 					"<td>" +
-						((dayItems < 1)? "" : "<a href=\"/footage?date=" + specificYear + "-" + specificMonth + "-" + PadNumber(i) + "\" title=\"" + i + DayPostfix(i) + " " + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + " - " + dayItems + " video" + ((dayItems > 1)? "s" : "") + "\">") +
+						((dayItems < 1)? "" : "<a href=\"footage?date=" + specificYear + "-" + specificMonth + "-" + PadNumber(i) + "\" title=\"" + i + DayPostfix(i) + " " + monthNames[parseInt(specificMonth) - 1] + " " + specificYear + " - " + dayItems + " video" + ((dayItems > 1)? "s" : "") + "\">") +
 							"<div class=\"heading\">" + i + "</div>" +
 							((dayItems < 1)? "<div class=\"count-spacer\"></div>" : "<div class=\"count\"><span>" + dayItems + "</span></div>")
 						+ ((dayItems < 1)? "" : "</a>") +
@@ -418,7 +418,7 @@ function OutputMonth(specificYear, specificMonth) {
 
 		html +=
 			"<div class=\"clear\"></div>" +
-			"<p><a class=\"button-link back\" href=\"/footage?date=" + specificYear + "\">Back to " + specificYear + "</a></p>";
+			"<p><a class=\"button-link back\" href=\"footage?date=" + specificYear + "\">Back to " + specificYear + "</a></p>";
 	}
 	
 	return html;
@@ -450,7 +450,7 @@ function OutputDay(specificYear, specificMonth, specificDay) {
 			var prevDateString = dayNames[DataDateToRealDate(previous.Date).getDay()] + " " + DataDateToRealDate(previous.Date).getDate() + DayPostfix(DataDateToRealDate(previous.Date).getDate()) + " " + monthNames[DataDateToRealDate(previous.Date).getMonth()] + " " + DataDateToRealDate(previous.Date).getFullYear(),
 				prevDateStringShort = dayNamesShort[DataDateToRealDate(previous.Date).getDay()] + " " + DataDateToRealDate(previous.Date).getDate() + DayPostfix(DataDateToRealDate(previous.Date).getDate()) + " " + monthNamesShort[DataDateToRealDate(previous.Date).getMonth()];
 
-			html += "<a class=\"button-link prev\" href=\"/footage?date=" + prevYear + "-" + prevMonth + "-" + prevDay + "\"><span class=\"desktop-only-inline\">" + prevDateString + "</span><span class=\"mobile-only-inline\">" + prevDateStringShort + "</span></a>";
+			html += "<a class=\"button-link prev\" href=\"footage?date=" + prevYear + "-" + prevMonth + "-" + prevDay + "\"><span class=\"desktop-only-inline\">" + prevDateString + "</span><span class=\"mobile-only-inline\">" + prevDateStringShort + "</span></a>";
 		}
 
 		var next = feed.filter(x => !x.Date.startsWith(specificYear + "-" + specificMonth + "-" + specificDay) && x.Date > specificYear + "-" + specificMonth + "-" + specificDay).at(-1)
@@ -461,7 +461,7 @@ function OutputDay(specificYear, specificMonth, specificDay) {
 			var nextDateString = dayNames[DataDateToRealDate(next.Date).getDay()] + " " + DataDateToRealDate(next.Date).getDate() + DayPostfix(DataDateToRealDate(next.Date).getDate()) + " " + monthNames[DataDateToRealDate(next.Date).getMonth()] + " " + DataDateToRealDate(next.Date).getFullYear(),
 				nextDateStringShort = dayNamesShort[DataDateToRealDate(next.Date).getDay()] + " " + DataDateToRealDate(next.Date).getDate() + DayPostfix(DataDateToRealDate(next.Date).getDate()) + " " + monthNamesShort[DataDateToRealDate(next.Date).getMonth()];
 
-			html += "<a class=\"button-link next\" href=\"/footage?date=" + nextYear + "-" + nextMonth + "-" + nextDay + "\"><span class=\"desktop-only-inline\">" + nextDateString + "</span><span class=\"mobile-only-inline\">" + nextDateStringShort + "</span></a>";
+			html += "<a class=\"button-link next\" href=\"footage?date=" + nextYear + "-" + nextMonth + "-" + nextDay + "\"><span class=\"desktop-only-inline\">" + nextDateString + "</span><span class=\"mobile-only-inline\">" + nextDateStringShort + "</span></a>";
 		}
 		
 		html += "</div>";
@@ -470,7 +470,7 @@ function OutputDay(specificYear, specificMonth, specificDay) {
 			html += OutputDayRow(footage, i, false);
 		});
 
-		html += "<p class=\"clear\"><a class=\"button-link back\" href=\"/footage?date=" + specificYear + "-" + specificMonth + "\">Back to <span class=\"desktop-only-inline\">" + monthNames[parseInt(specificMonth) - 1] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[parseInt(specificMonth) - 1] + "</span> " + specificYear + "</a></p>";
+		html += "<p class=\"clear\"><a class=\"button-link back\" href=\"footage?date=" + specificYear + "-" + specificMonth + "\">Back to <span class=\"desktop-only-inline\">" + monthNames[parseInt(specificMonth) - 1] + "</span><span class=\"mobile-only-inline\">" + monthNamesShort[parseInt(specificMonth) - 1] + "</span> " + specificYear + "</a></p>";
 	}
 	
 	return html;
@@ -492,15 +492,15 @@ function OutputDayRow(footage, i, showDate) {
 			"<hr>" +
 			"<section class=\"video-row\">" +
 				"<section class=\"video-holder\">" +
-					"<a href=\"/footage?video=" + footage.Key + "\">" +
+					"<a href=\"footage?video=" + footage.Key + "\">" +
 						"<img alt=\"" + siteName + " clip from " + dateString + ", " + timeString + ". Camera: " + GetNiceCameraName(footage.Camera) + "\" src=\"" + feedHost + footage.Key + ".jpg\">" +
 					"</a>" +
 				"</section>" +
 				"<section class=\"video-details\">" +
-				"<p><a class=\"button-link play\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.Key + "\">Play Video</a></p>" +
+				"<p><a class=\"button-link play\" id=\"video-" + i + "\" href=\"footage?video=" + footage.Key + "\">Play Video</a></p>" +
 					((showDate)? "<p><span class=\"desktop-only-inline\">Date:&nbsp;</span><span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span></p>" : "") +
 					"<p><span class=\"desktop-only-inline\">Time:&nbsp;</span>" + timeString + "</p>" +
-					"<p><span class=\"desktop-only-inline\">Camera:&nbsp;</span><a href=\"/cameras#" + footage.Camera + "\" title=\"Click for info on the " + GetNiceCameraName(footage.Camera) + " camera.\">" + GetNiceCameraName(footage.Camera) + "</a></p>" +
+					"<p><span class=\"desktop-only-inline\">Camera:&nbsp;</span><a href=\"cameras#" + footage.Camera + "\" title=\"Click for info on the " + GetNiceCameraName(footage.Camera) + " camera.\">" + GetNiceCameraName(footage.Camera) + "</a></p>" +
 				"</section>" +
 			"</section>" +
 		"</section>";
@@ -538,21 +538,21 @@ function OutputClipRow(footage, i) {
 	var html =
 		"<section class=\"clip\">" +
 			"<section class=\"clip-holder\">" +
-				"<a href=\"/footage?video=" + footage.Key + "\">" +
+				"<a href=\"footage?video=" + footage.Key + "\">" +
 					"<img alt=\"" + siteName + " clip from " + dateString + ", " + timeString + ". Camera: " + GetNiceCameraName(footage.Camera) + "\" src=\"" + feedHost + footage.Key + ".jpg\">" +
 				"</a>" +
 			"</section>" +
 			"<section class=\"clip-details\">" +
 				"<p>" +
-					"<a class=\"button-link play desktop-only\" id=\"video-" + i + "-1\" href=\"/footage?video=" + footage.Key + "\">Play Video</a>" +
-					"<a class=\"button-link play mobile-only\" id=\"video-" + i + "\" href=\"/footage?video=" + footage.Key + "\">Play</a>" +
+					"<a class=\"button-link play desktop-only\" id=\"video-" + i + "-1\" href=\"footage?video=" + footage.Key + "\">Play Video</a>" +
+					"<a class=\"button-link play mobile-only\" id=\"video-" + i + "\" href=\"footage?video=" + footage.Key + "\">Play</a>" +
 				"</p>" +
 				"<p>" +
 					"<span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span>" +
 					"<span class=\"desktop-only-inline\">&nbsp;</span><span class=\"mobile-only-inline\"><br></span>" +
 					timeString +
 				"</p>" +
-				"<p class=\"camera-name\"><span class=\"desktop-only-inline\">Camera:&nbsp;</span><a href=\"/cameras#" + footage.Camera + "\" title=\"Click for info on the " + GetNiceCameraName(footage.Camera) + " camera.\">" + GetNiceCameraName(footage.Camera) + "</a></p>" +
+				"<p class=\"camera-name\"><span class=\"desktop-only-inline\">Camera:&nbsp;</span><a href=\"cameras#" + footage.Camera + "\" title=\"Click for info on the " + GetNiceCameraName(footage.Camera) + " camera.\">" + GetNiceCameraName(footage.Camera) + "</a></p>" +
 			"</section>" +
 		"</section>";
 	
@@ -574,7 +574,7 @@ function OutputVideo(video) {
 		$("p#title").text("Footage from " + dateStringShort + " at " + timeString + " - " + siteName);
 	
 		html += "<p>Footage from <span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span> at " + timeString + ".</p>";
-		html += "<p>Taken on the <a href=\"/cameras#" + footage[0].Camera + "\">" + GetNiceCameraName(footage[0].Camera) + "</a> camera.</p>";
+		html += "<p>Taken on the <a href=\"cameras#" + footage[0].Camera + "\">" + GetNiceCameraName(footage[0].Camera) + "</a> camera.</p>";
 
 		html +=	"<div class=\"prev-next\">";
 
@@ -584,7 +584,7 @@ function OutputVideo(video) {
 			var previous = feed[currentPosition + 1];
 
 			if(previous != null) {
-				html += "<a class=\"button-link prev\" href=\"/footage?video=" + previous.Key + "\">Previous Video</a>";
+				html += "<a class=\"button-link prev\" href=\"footage?video=" + previous.Key + "\">Previous Video</a>";
 			}
 		}
 
@@ -592,7 +592,7 @@ function OutputVideo(video) {
 			var next = feed[currentPosition - 1];
 
 			if(next != null) {
-				html += "<a class=\"button-link next\" href=\"/footage?video=" + next.Key + "\">Next Video</a>";
+				html += "<a class=\"button-link next\" href=\"footage?video=" + next.Key + "\">Next Video</a>";
 			}
 		}
 
@@ -609,10 +609,10 @@ function OutputVideo(video) {
 				"<section class=\"video-details\">" +
 					"<p><span class=\"desktop-only-inline\">Date:&nbsp;</span><span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span></p>" +
 					"<p><span class=\"desktop-only-inline\">Time:&nbsp;</span>" + timeString + "</p>" +
-					"<p><span class=\"desktop-only-inline\">Camera:&nbsp;</span><a href=\"/cameras#" + footage[0].Camera + "\" title=\"Click for info on the " + GetNiceCameraName(footage[0].Camera) + " camera.\">" + GetNiceCameraName(footage[0].Camera) + "</a></p>" +
+					"<p><span class=\"desktop-only-inline\">Camera:&nbsp;</span><a href=\"cameras#" + footage[0].Camera + "\" title=\"Click for info on the " + GetNiceCameraName(footage[0].Camera) + " camera.\">" + GetNiceCameraName(footage[0].Camera) + "</a></p>" +
 				"</section>" +
 			"</section>" +
-			"<p><a class=\"button-link back\" href=\"/footage?date=" + video.substring(0, 10) + "\">Back to <span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span></a></p>";
+			"<p><a class=\"button-link back\" href=\"footage?date=" + video.substring(0, 10) + "\">Back to <span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span></a></p>";
 	}
 	
 	return html;
