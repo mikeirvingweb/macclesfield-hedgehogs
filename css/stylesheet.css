@@ -6,6 +6,7 @@
     --link-button: #deb887;
     --play: #0000cd;
     --main-content: #222;
+    --attention: #cc0000;
   }
 
 /* HTML5 Boilerplate */
@@ -35,6 +36,8 @@ footer, header, hgroup, menu, nav, section {
 .right {position: relative; float: right;}
 .clear {clear: both;}
 .clear-with-gap {clear: both; height: 1em;}
+
+.attention {color: var(--attention)}
 
 body {font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 1.0em; -webkit-text-size-adjust: none; color:#eee; width:100%; background:#333;}
 .page {width:100%; max-width:1000px; position:relative; overflow:auto; margin: 0 auto 0 auto; padding: 0 0 4em 0; background-image: url(../images/page-overlay.png); background-position: bottom center; background-size: 100px 100px; background-repeat: no-repeat;}
@@ -115,6 +118,7 @@ header .headerFullRight {position:relative; float:right; margin: 10px 0; width: 
 .clip .clip-holder {margin-bottom: 0.5em;}
 .clip .clip-details {margin-bottom: 0.5em; padding: 0; text-align: center;}
 .clip .clip-details p {margin-bottom: 0 ! important;}
+.clip .clip-details p span {font-size: 0.9em;}
 .clip .clip-details .button-link.mobile-only {font-size: 0.7em;}
 #main p.camera-name {font-size: 0.7em;}
 #footage ul, #footage ul li {list-style: none;}

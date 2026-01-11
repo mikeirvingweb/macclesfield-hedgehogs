@@ -98,7 +98,7 @@ function HomePage() {
 				else
 					var latestFootage = feed.filter(x => x.Date < "2024-08-19").filter(x => x.Camera == item)[0];
 
-				footage += OutputClipRow(latestFootage, i, true);
+				footage += OutputClipRow(latestFootage, i);
 			}
 
 			processed++;
@@ -531,8 +531,8 @@ function ShowVideoRow(i, stop) {
 }
 
 function OutputClipRow(footage, i) {
-	var dateString = dayNamesShort[DataDateToRealDate(footage.Date).getDay()] + " " + DataDateToRealDate(footage.Date).getDate() + DayPostfix(DataDateToRealDate(footage.Date).getDate()) + " " + monthNames[DataDateToRealDate(footage.Date).getMonth()],
-		dateStringShort = DataDateToRealDate(footage.Date).getDate() + DayPostfix(DataDateToRealDate(footage.Date).getDate()) + " " + monthNamesShort[DataDateToRealDate(footage.Date).getMonth()],
+	var dateString = dayNamesShort[DataDateToRealDate(footage.Date).getDay()] + " " + DataDateToRealDate(footage.Date).getDate() + DayPostfix(DataDateToRealDate(footage.Date).getDate()) + " " + monthNames[DataDateToRealDate(footage.Date).getMonth()] + " " + DataDateToRealDate(footage.Date).getFullYear(),
+		dateStringShort = DataDateToRealDate(footage.Date).getDate() + DayPostfix(DataDateToRealDate(footage.Date).getDate()) + " " + monthNamesShort[DataDateToRealDate(footage.Date).getMonth()] + " " + DataDateToRealDate(footage.Date).getFullYear(),
 		timeString = DataDateToRealDate(footage.Date).toTimeString().split(' ')[0];
 
 	var html =
@@ -549,7 +549,7 @@ function OutputClipRow(footage, i) {
 				"</p>" +
 				"<p>" +
 					"<span class=\"desktop-only-inline\">" + dateString + "</span><span class=\"mobile-only-inline\">" + dateStringShort + "</span>" +
-					"<span class=\"desktop-only-inline\">&nbsp;</span><span class=\"mobile-only-inline\"><br></span>" +
+					"<span class=\"desktop-only-inline\">&nbsp;</span><span class=\"mobile-only\"></span>" +
 					timeString +
 				"</p>" +
 				"<p class=\"camera-name\"><span class=\"desktop-only-inline\">Camera:&nbsp;</span><a href=\"cameras#" + footage.Camera + "\" title=\"Click for info on the " + GetNiceCameraName(footage.Camera) + " camera.\">" + GetNiceCameraName(footage.Camera) + "</a></p>" +
